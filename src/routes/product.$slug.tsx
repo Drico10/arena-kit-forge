@@ -69,7 +69,7 @@ function ProductPage() {
             />
           </div>
           <div className="mt-4 grid grid-cols-4 gap-3">
-            {product.gallery.map((g, i) => (
+            {product.gallery.map((g: string, i: number) => (
               <button key={i} onClick={() => setActive(i)}
                 className={cn("aspect-square overflow-hidden rounded-lg border bg-black", active === i ? "border-gold" : "border-border")}>
                 <img src={g} alt="" className="h-full w-full object-cover" />
@@ -104,7 +104,7 @@ function ProductPage() {
               </button>
             </div>
             <div className="flex flex-wrap gap-2">
-              {product.sizes.map((s) => (
+              {product.sizes.map((s: string) => (
                 <button key={s} onClick={() => setSize(s)}
                   className={cn("min-w-14 rounded-md border px-4 py-2.5 text-sm font-medium transition",
                     size === s ? "border-gold bg-gold text-gold-foreground" : "border-border hover:border-foreground")}>
