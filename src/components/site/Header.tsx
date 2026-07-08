@@ -24,17 +24,19 @@ export function Header() {
       {/* Free shipping banner */}
       <div className="overflow-hidden bg-gold text-gold-foreground">
         <div className="flex whitespace-nowrap py-1.5 text-xs font-semibold uppercase tracking-widest marquee">
-          <span className="mx-8">Free worldwide shipping over $150</span>
+          <span className="mx-8">⚽ Free worldwide shipping over $150</span>
           <span className="mx-8">✦</span>
-          <span className="mx-8">Use code ARENA10 — 10% off first order</span>
+          <span className="mx-8">ARENA10 — 10% off your first shirt</span>
           <span className="mx-8">✦</span>
-          <span className="mx-8">Authentic jerseys — official quality</span>
+          <span className="mx-8">Made for fans, by fans</span>
           <span className="mx-8">✦</span>
-          <span className="mx-8">Free worldwide shipping over $150</span>
+          <span className="mx-8">Matchday-ready · 5–10 day delivery</span>
           <span className="mx-8">✦</span>
-          <span className="mx-8">Use code ARENA10 — 10% off first order</span>
+          <span className="mx-8">⚽ Free worldwide shipping over $150</span>
           <span className="mx-8">✦</span>
-          <span className="mx-8">Authentic jerseys — official quality</span>
+          <span className="mx-8">ARENA10 — 10% off your first shirt</span>
+          <span className="mx-8">✦</span>
+          <span className="mx-8">Made for fans, by fans</span>
           <span className="mx-8">✦</span>
         </div>
       </div>

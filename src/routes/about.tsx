@@ -10,14 +10,14 @@ function About() {
     <div className="container-x py-10 md:py-16">
       <p className="text-xs uppercase tracking-[0.3em] text-gold">Our story</p>
       <h1 className="mt-2 max-w-3xl font-display text-4xl md:text-6xl">
-        Where football <span className="gold-text">obsession</span> meets craft.
+        Started by fans. Still <span className="gold-text">run by fans.</span>
       </h1>
       <div className="mt-10 grid gap-10 md:grid-cols-2">
         <p className="text-lg text-foreground/85">
-          Imports Arena was born in 2019 from a simple idea: fans deserve authentic jerseys — the real fabrics, the real crests, the real feel — delivered anywhere in the world without compromise.
+          Imports Arena began in 2019 in a small flat with a laptop, a Flamengo poster and a stubborn belief: fans everywhere deserve the shirts they love — without paying tourist prices or waiting months for a box that never comes.
         </p>
         <p className="text-lg text-foreground/85">
-          Today we source from Brazil, Europe and beyond, curating a collection that spans modern releases and iconic retro classics. Every stitch tells a story. Every jersey earns its place.
+          Six years on, we're still the same people. We source from Brazil, Europe and the corners of the football world you won't find in a mall. We answer our own messages. We wear what we sell. And we keep prices fair, because loving football shouldn't cost a paycheck.
         </p>
       </div>
 
