@@ -21,22 +21,35 @@ export const Route = createFileRoute("/shop")({
 
 function Shop() {
   const { category } = Route.useSearch();
-  const [filters, setFilters] = useState<Filters>({
-    q: "", club: [], league: [], country: [], size: [], season: [], category, maxPrice: 200,
-  });
+  const [filters, setFilters] = useState<Filters>(emptyFilters(category));
+  const [sort, setSort] = useState<SortKey>("featured");
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  const filtered = useMemo(() => products.filter((p) => {
-    if (filters.category !== "all" && p.category !== filters.category) return false;
-    if (filters.q && !p.name.toLowerCase().includes(filters.q.toLowerCase()) && !p.club.toLowerCase().includes(filters.q.toLowerCase())) return false;
-    if (filters.club.length && !filters.club.includes(p.club)) return false;
-    if (filters.league.length && !filters.league.includes(p.league)) return false;
-    if (filters.country.length && !filters.country.includes(p.country)) return false;
-    if (filters.season.length && !filters.season.includes(p.season)) return false;
-    if (filters.size.length && !p.sizes.some((s) => filters.size.includes(s))) return false;
-    if (p.price > filters.maxPrice) return false;
-    return true;
-  }), [filters]);
+  const activeCount =
+    filters.club.length + filters.league.length + filters.country.length +
+    filters.size.length + filters.season.length +
+    (filters.category !== "all" ? 1 : 0) + (filters.maxPrice < 200 ? 1 : 0);
+
+  const filtered = useMemo(() => {
+    const list = products.filter((p) => {
+      if (filters.category !== "all" && p.category !== filters.category) return false;
+      if (filters.q && !p.name.toLowerCase().includes(filters.q.toLowerCase()) && !p.club.toLowerCase().includes(filters.q.toLowerCase())) return false;
+      if (filters.club.length && !filters.club.includes(p.club)) return false;
+      if (filters.league.length && !filters.league.includes(p.league)) return false;
+      if (filters.country.length && !filters.country.includes(p.country)) return false;
+      if (filters.season.length && !filters.season.includes(p.season)) return false;
+      if (filters.size.length && !p.sizes.some((s) => filters.size.includes(s))) return false;
+      if (p.price > filters.maxPrice) return false;
+      return true;
+    });
+    switch (sort) {
+      case "price-asc": return [...list].sort((a, b) => a.price - b.price);
+      case "price-desc": return [...list].sort((a, b) => b.price - a.price);
+      case "rating": return [...list].sort((a, b) => b.rating - a.rating);
+      case "newest": return [...list].sort((a, b) => (b.badge === "NEW" ? 1 : 0) - (a.badge === "NEW" ? 1 : 0));
+      default: return list;
+    }
+  }, [filters, sort]);
 
   const toggle = (key: keyof Filters, val: string) => setFilters((f) => {
     const list = f[key] as string[];
