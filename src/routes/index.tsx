@@ -46,22 +46,25 @@ function Home() {
         <div className="absolute inset-0 -z-10 bg-gradient-to-r from-background via-background/70 to-transparent" />
         <div className="absolute inset-0 -z-10 bg-gradient-to-t from-background via-transparent to-transparent" />
         <div className="container-x flex min-h-[78vh] flex-col justify-center py-24">
-          <p className="mb-4 text-xs uppercase tracking-[0.4em] text-gold">2024/25 Season · New Collection</p>
+          <p className="mb-4 text-xs uppercase tracking-[0.4em] text-gold">2024/25 Season · Kickoff Collection</p>
           <h1 className="max-w-3xl font-display text-5xl leading-[0.95] md:text-7xl lg:text-8xl">
-            Wear the <span className="gold-text">legend</span>.
-            <br />Own the game.
+            For the love of the <span className="gold-text">game</span>.
+            <br />Worn by real fans.
           </h1>
           <p className="mt-6 max-w-lg text-base text-muted-foreground md:text-lg">
-            Authentic football jerseys from top clubs, national teams and retro classics — imported and delivered worldwide.
+            Football jerseys built for matchdays, five-a-sides and Sunday couches. Top clubs, national teams and retro icons — priced fair, shipped worldwide.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link to="/shop" className="btn-gold rounded-md px-7 py-3.5 text-sm uppercase tracking-widest">
-              Shop the drop
+              Shop the kits
             </Link>
             <Link to="/categories" className="rounded-md border border-border bg-background/50 px-7 py-3.5 text-sm uppercase tracking-widest backdrop-blur transition hover:border-gold hover:text-gold">
-              Browse categories
+              Pick your team
             </Link>
           </div>
+          <p className="mt-6 text-xs uppercase tracking-[0.25em] text-muted-foreground">
+            ⚽ Trusted by 120,000+ fans in 90+ countries
+          </p>
         </div>
       </section>
 
