@@ -110,12 +110,45 @@ function Shop() {
           <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
           <input value={filters.q} onChange={(e) => setFilters((f) => ({ ...f, q: e.target.value }))}
             placeholder="Search clubs, teams, seasons…"
-            className="w-full rounded-md border border-border bg-background py-3 pl-10 pr-4 text-sm outline-none focus:border-gold" />
+            className="w-full rounded-md border border-border bg-background py-3 pl-10 pr-10 text-sm outline-none focus:border-gold" />
+          {filters.q && (
+            <button
+              onClick={() => setFilters((f) => ({ ...f, q: "" }))}
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
+              aria-label="Clear search"
+            >
+              <X className="h-4 w-4" />
+            </button>
+          )}
         </div>
-        <button onClick={() => setMobileOpen(true)} className="inline-flex items-center gap-2 rounded-md border border-border px-4 py-3 text-sm md:hidden">
+        <select
+          value={sort}
+          onChange={(e) => setSort(e.target.value as SortKey)}
+          className="rounded-md border border-border bg-background px-3 py-3 text-sm outline-none focus:border-gold"
+        >
+          <option value="featured">Featured</option>
+          <option value="newest">Newest</option>
+          <option value="price-asc">Price: Low to High</option>
+          <option value="price-desc">Price: High to Low</option>
+          <option value="rating">Top Rated</option>
+        </select>
+        <button onClick={() => setMobileOpen(true)} className="inline-flex items-center justify-center gap-2 rounded-md border border-border px-4 py-3 text-sm md:hidden">
           <SlidersHorizontal className="h-4 w-4" /> Filters
+          {activeCount > 0 && (
+            <span className="grid h-5 min-w-5 place-items-center rounded-full bg-gold px-1.5 text-[10px] font-bold text-gold-foreground">{activeCount}</span>
+          )}
         </button>
-        <p className="text-sm text-muted-foreground md:ml-4">{filtered.length} products</p>
+        <div className="flex items-center gap-4 md:ml-2">
+          <p className="text-sm text-muted-foreground">{filtered.length} products</p>
+          {activeCount > 0 && (
+            <button
+              onClick={() => setFilters(emptyFilters("all"))}
+              className="text-xs font-medium uppercase tracking-widest text-gold hover:underline"
+            >
+              Clear all
+            </button>
+          )}
+        </div>
       </div>
 
       <div className="grid gap-8 md:grid-cols-[240px_1fr]">
