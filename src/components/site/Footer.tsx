@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Instagram, Facebook, Twitter, Youtube } from "lucide-react";
+import { Instagram, MessageCircle, Mail, HelpCircle, Truck } from "lucide-react";
 
 const cols = [
   {
@@ -30,6 +30,17 @@ const cols = [
   },
 ];
 
+const socials = [
+  { href: "https://instagram.com", label: "Instagram", Icon: Instagram },
+  { href: "https://wa.me/00000000000", label: "WhatsApp", Icon: MessageCircle },
+];
+
+const quick = [
+  { to: "/contact", label: "Contact", Icon: Mail },
+  { to: "/faq", label: "FAQ", Icon: HelpCircle },
+  { to: "/shipping", label: "Shipping & Returns", Icon: Truck },
+];
+
 export function Footer() {
   return (
     <footer className="border-t border-border bg-card mt-24">
@@ -43,15 +54,25 @@ export function Footer() {
               Authentic football jerseys from the world's greatest clubs and national teams. Curated,
               imported, delivered.
             </p>
-            <div className="mt-6 flex gap-3">
-              {[Instagram, Facebook, Twitter, Youtube].map((Icon, i) => (
+            <div className="mt-6 flex flex-wrap gap-3">
+              {socials.map(({ href, label, Icon }) => (
                 <a
-                  key={i}
-                  href="#"
-                  className="grid h-10 w-10 place-items-center rounded-full border border-border transition hover:border-gold hover:text-gold"
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener"
+                  aria-label={label}
+                  className="inline-flex items-center gap-2 rounded-full border border-border px-3.5 py-2 text-xs font-medium uppercase tracking-widest transition hover:border-gold hover:text-gold"
                 >
-                  <Icon className="h-4 w-4" />
+                  <Icon className="h-4 w-4" /> {label}
                 </a>
+              ))}
+            </div>
+            <div className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-xs text-muted-foreground">
+              {quick.map(({ to, label, Icon }) => (
+                <Link key={to} to={to} className="inline-flex items-center gap-1.5 transition hover:text-gold">
+                  <Icon className="h-3.5 w-3.5" /> {label}
+                </Link>
               ))}
             </div>
           </div>

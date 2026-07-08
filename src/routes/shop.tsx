@@ -4,10 +4,15 @@ import { Search, SlidersHorizontal, X } from "lucide-react";
 import { products } from "@/lib/products";
 import { ProductCard } from "@/components/site/ProductCard";
 
+type SortKey = "featured" | "price-asc" | "price-desc" | "rating" | "newest";
 type Filters = { q: string; club: string[]; league: string[]; country: string[]; size: string[]; season: string[]; category: string; maxPrice: number };
 
 const uniq = <K extends keyof (typeof products)[number]>(k: K) =>
   Array.from(new Set(products.map((p) => p[k] as string)));
+
+const emptyFilters = (category: string): Filters => ({
+  q: "", club: [], league: [], country: [], size: [], season: [], category, maxPrice: 200,
+});
 
 export const Route = createFileRoute("/shop")({
   validateSearch: (s: Record<string, unknown>) => ({ category: (s.category as string) ?? "all" }),
@@ -16,22 +21,35 @@ export const Route = createFileRoute("/shop")({
 
 function Shop() {
   const { category } = Route.useSearch();
-  const [filters, setFilters] = useState<Filters>({
-    q: "", club: [], league: [], country: [], size: [], season: [], category, maxPrice: 200,
-  });
+  const [filters, setFilters] = useState<Filters>(emptyFilters(category));
+  const [sort, setSort] = useState<SortKey>("featured");
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  const filtered = useMemo(() => products.filter((p) => {
-    if (filters.category !== "all" && p.category !== filters.category) return false;
-    if (filters.q && !p.name.toLowerCase().includes(filters.q.toLowerCase()) && !p.club.toLowerCase().includes(filters.q.toLowerCase())) return false;
-    if (filters.club.length && !filters.club.includes(p.club)) return false;
-    if (filters.league.length && !filters.league.includes(p.league)) return false;
-    if (filters.country.length && !filters.country.includes(p.country)) return false;
-    if (filters.season.length && !filters.season.includes(p.season)) return false;
-    if (filters.size.length && !p.sizes.some((s) => filters.size.includes(s))) return false;
-    if (p.price > filters.maxPrice) return false;
-    return true;
-  }), [filters]);
+  const activeCount =
+    filters.club.length + filters.league.length + filters.country.length +
+    filters.size.length + filters.season.length +
+    (filters.category !== "all" ? 1 : 0) + (filters.maxPrice < 200 ? 1 : 0);
+
+  const filtered = useMemo(() => {
+    const list = products.filter((p) => {
+      if (filters.category !== "all" && p.category !== filters.category) return false;
+      if (filters.q && !p.name.toLowerCase().includes(filters.q.toLowerCase()) && !p.club.toLowerCase().includes(filters.q.toLowerCase())) return false;
+      if (filters.club.length && !filters.club.includes(p.club)) return false;
+      if (filters.league.length && !filters.league.includes(p.league)) return false;
+      if (filters.country.length && !filters.country.includes(p.country)) return false;
+      if (filters.season.length && !filters.season.includes(p.season)) return false;
+      if (filters.size.length && !p.sizes.some((s) => filters.size.includes(s))) return false;
+      if (p.price > filters.maxPrice) return false;
+      return true;
+    });
+    switch (sort) {
+      case "price-asc": return [...list].sort((a, b) => a.price - b.price);
+      case "price-desc": return [...list].sort((a, b) => b.price - a.price);
+      case "rating": return [...list].sort((a, b) => b.rating - a.rating);
+      case "newest": return [...list].sort((a, b) => (b.badge === "NEW" ? 1 : 0) - (a.badge === "NEW" ? 1 : 0));
+      default: return list;
+    }
+  }, [filters, sort]);
 
   const toggle = (key: keyof Filters, val: string) => setFilters((f) => {
     const list = f[key] as string[];
@@ -92,12 +110,45 @@ function Shop() {
           <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
           <input value={filters.q} onChange={(e) => setFilters((f) => ({ ...f, q: e.target.value }))}
             placeholder="Search clubs, teams, seasons…"
-            className="w-full rounded-md border border-border bg-background py-3 pl-10 pr-4 text-sm outline-none focus:border-gold" />
+            className="w-full rounded-md border border-border bg-background py-3 pl-10 pr-10 text-sm outline-none focus:border-gold" />
+          {filters.q && (
+            <button
+              onClick={() => setFilters((f) => ({ ...f, q: "" }))}
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
+              aria-label="Clear search"
+            >
+              <X className="h-4 w-4" />
+            </button>
+          )}
         </div>
-        <button onClick={() => setMobileOpen(true)} className="inline-flex items-center gap-2 rounded-md border border-border px-4 py-3 text-sm md:hidden">
+        <select
+          value={sort}
+          onChange={(e) => setSort(e.target.value as SortKey)}
+          className="rounded-md border border-border bg-background px-3 py-3 text-sm outline-none focus:border-gold"
+        >
+          <option value="featured">Featured</option>
+          <option value="newest">Newest</option>
+          <option value="price-asc">Price: Low to High</option>
+          <option value="price-desc">Price: High to Low</option>
+          <option value="rating">Top Rated</option>
+        </select>
+        <button onClick={() => setMobileOpen(true)} className="inline-flex items-center justify-center gap-2 rounded-md border border-border px-4 py-3 text-sm md:hidden">
           <SlidersHorizontal className="h-4 w-4" /> Filters
+          {activeCount > 0 && (
+            <span className="grid h-5 min-w-5 place-items-center rounded-full bg-gold px-1.5 text-[10px] font-bold text-gold-foreground">{activeCount}</span>
+          )}
         </button>
-        <p className="text-sm text-muted-foreground md:ml-4">{filtered.length} products</p>
+        <div className="flex items-center gap-4 md:ml-2">
+          <p className="text-sm text-muted-foreground">{filtered.length} products</p>
+          {activeCount > 0 && (
+            <button
+              onClick={() => setFilters(emptyFilters("all"))}
+              className="text-xs font-medium uppercase tracking-widest text-gold hover:underline"
+            >
+              Clear all
+            </button>
+          )}
+        </div>
       </div>
 
       <div className="grid gap-8 md:grid-cols-[240px_1fr]">

@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Truck, ShieldCheck, RefreshCcw, Star } from "lucide-react";
+import { ArrowRight, ShieldCheck, Truck, Award, Headphones, Star } from "lucide-react";
 import { products } from "@/lib/products";
 import { ProductCard } from "@/components/site/ProductCard";
 import hero from "@/assets/hero.jpg";
@@ -65,20 +65,22 @@ function Home() {
         </div>
       </section>
 
-      {/* Trust bar */}
-      <section className="border-y border-border bg-card/50">
-        <div className="container-x grid grid-cols-2 gap-6 py-8 md:grid-cols-4">
+      {/* Trust section */}
+      <section className="border-y border-border bg-card/40">
+        <div className="container-x grid grid-cols-2 gap-x-6 gap-y-8 py-12 md:grid-cols-4 md:py-14">
           {[
-            { icon: Truck, t: "Free shipping", s: "On orders over $150" },
-            { icon: ShieldCheck, t: "Authentic quality", s: "Officially sourced" },
-            { icon: RefreshCcw, t: "30-day returns", s: "Hassle-free exchanges" },
-            { icon: Star, t: "4.9/5 rating", s: "12,000+ reviews" },
+            { icon: ShieldCheck, t: "Secure Payment", s: "SSL encrypted checkout" },
+            { icon: Truck, t: "Fast Shipping", s: "Worldwide 5–10 days" },
+            { icon: Award, t: "Premium Quality", s: "Authentic materials" },
+            { icon: Headphones, t: "Customer Support", s: "7 days a week" },
           ].map(({ icon: Icon, t, s }) => (
-            <div key={t} className="flex items-center gap-3">
-              <Icon className="h-6 w-6 text-gold" />
-              <div>
-                <p className="text-sm font-semibold">{t}</p>
-                <p className="text-xs text-muted-foreground">{s}</p>
+            <div key={t} className="flex items-start gap-3 md:gap-4">
+              <div className="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-gold/40 bg-gold/5 text-gold">
+                <Icon className="h-5 w-5" />
+              </div>
+              <div className="min-w-0">
+                <p className="text-sm font-semibold leading-tight">{t}</p>
+                <p className="mt-1 text-xs text-muted-foreground">{s}</p>
               </div>
             </div>
           ))}
