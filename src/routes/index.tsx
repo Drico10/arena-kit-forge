@@ -208,9 +208,9 @@ function Home() {
         <div className="relative overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-card to-background p-8 md:p-16">
           <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-gold/10 blur-3xl" />
           <div className="relative max-w-xl">
-            <p className="mb-2 text-xs uppercase tracking-[0.3em] text-gold">The Arena</p>
-            <h2 className="font-display text-3xl md:text-5xl">Join the squad</h2>
-            <p className="mt-4 text-muted-foreground">Get 10% off your first order plus early access to drops and retro restocks.</p>
+            <p className="mb-2 text-xs uppercase tracking-[0.3em] text-gold">Join the squad</p>
+            <h2 className="font-display text-3xl md:text-5xl">Get in the group chat</h2>
+            <p className="mt-4 text-muted-foreground">10% off your first shirt, early word on retro restocks, and honest matchday picks. No spam, no hype — just football.</p>
             <form onSubmit={(e) => e.preventDefault()} className="mt-6 flex flex-col gap-3 sm:flex-row">
               <input type="email" required placeholder="your@email.com"
                 className="flex-1 rounded-md border border-border bg-background px-4 py-3 text-sm outline-none focus:border-gold" />
