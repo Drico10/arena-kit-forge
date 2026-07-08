@@ -183,13 +183,13 @@ function Home() {
       {/* Reviews */}
       <section className="border-y border-border bg-card/40 py-16 md:py-24">
         <div className="container-x">
-          <p className="mb-2 text-xs uppercase tracking-[0.3em] text-gold">Community</p>
-          <h2 className="mb-8 font-display text-3xl md:text-5xl">Customer reviews</h2>
+          <p className="mb-2 text-xs uppercase tracking-[0.3em] text-gold">From the terraces</p>
+          <h2 className="mb-8 font-display text-3xl md:text-5xl">Fans, in their own words</h2>
           <div className="grid gap-6 md:grid-cols-3">
             {[
-              { n: "Lucas M.", c: "Brazil", t: "Fabric quality is unreal. Feels like the real deal — because it is.", r: 5 },
-              { n: "Sophie D.", c: "France", t: "Ordered the retro Santos. Wow. Wearing history.", r: 5 },
-              { n: "James K.", c: "UK", t: "Fast shipping, perfect fit. Already ordered my second jersey.", r: 5 },
+              { n: "Lucas M.", c: "São Paulo, Brazil", t: "Wore my Timão shirt to the derby. Felt like I was on the pitch. Fabric, crest, everything — spot on.", r: 5 },
+              { n: "Sophie D.", c: "Lyon, France", t: "The retro Santos arrived and my dad cried. Actually cried. Wearing history, no exaggeration.", r: 5 },
+              { n: "James K.", c: "Manchester, UK", t: "Fair price, quick delivery, fits like a proper kit. Already back for my second — City away this time.", r: 5 },
             ].map((r) => (
               <div key={r.n} className="rounded-xl border border-border bg-background p-6">
                 <div className="flex gap-0.5 text-gold">
