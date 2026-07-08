@@ -4,10 +4,15 @@ import { Search, SlidersHorizontal, X } from "lucide-react";
 import { products } from "@/lib/products";
 import { ProductCard } from "@/components/site/ProductCard";
 
+type SortKey = "featured" | "price-asc" | "price-desc" | "rating" | "newest";
 type Filters = { q: string; club: string[]; league: string[]; country: string[]; size: string[]; season: string[]; category: string; maxPrice: number };
 
 const uniq = <K extends keyof (typeof products)[number]>(k: K) =>
   Array.from(new Set(products.map((p) => p[k] as string)));
+
+const emptyFilters = (category: string): Filters => ({
+  q: "", club: [], league: [], country: [], size: [], season: [], category, maxPrice: 200,
+});
 
 export const Route = createFileRoute("/shop")({
   validateSearch: (s: Record<string, unknown>) => ({ category: (s.category as string) ?? "all" }),
