@@ -72,10 +72,10 @@ function Home() {
       <section className="border-y border-border bg-card/40">
         <div className="container-x grid grid-cols-2 gap-x-6 gap-y-8 py-12 md:grid-cols-4 md:py-14">
           {[
-            { icon: ShieldCheck, t: "Secure Payment", s: "SSL encrypted checkout" },
-            { icon: Truck, t: "Fast Shipping", s: "Worldwide 5–10 days" },
-            { icon: Award, t: "Premium Quality", s: "Authentic materials" },
-            { icon: Headphones, t: "Customer Support", s: "7 days a week" },
+            { icon: ShieldCheck, t: "Safe Checkout", s: "Buy with confidence" },
+            { icon: Truck, t: "Worldwide Delivery", s: "Free over $150" },
+            { icon: Award, t: "Fan-Grade Quality", s: "Kits that last seasons" },
+            { icon: Headphones, t: "Real Humans", s: "Fans helping fans, 7 days" },
           ].map(({ icon: Icon, t, s }) => (
             <div key={t} className="flex items-start gap-3 md:gap-4">
               <div className="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-gold/40 bg-gold/5 text-gold">
