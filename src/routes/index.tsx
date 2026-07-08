@@ -90,6 +90,29 @@ function Home() {
         </div>
       </section>
 
+      {/* Manifesto */}
+      <section className="container-x py-16 md:py-24">
+        <div className="mx-auto max-w-4xl text-center">
+          <p className="mb-3 text-xs uppercase tracking-[0.4em] text-gold">The Arena creed</p>
+          <h2 className="font-display text-3xl leading-tight md:text-5xl">
+            We're not a fashion brand. <span className="gold-text">We're football.</span>
+          </h2>
+          <p className="mx-auto mt-6 max-w-2xl text-base text-muted-foreground md:text-lg">
+            Every crest here means something to someone. We hunt down the shirts fans actually want — from São Paulo derbies to Sunday-league heroes — and we keep the prices honest. No hype tax. Just kits, delivered to fans who love the game as much as we do.
+          </p>
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-xs uppercase tracking-[0.25em] text-muted-foreground">
+            <span>⚽ For the fans</span>
+            <span className="text-gold">✦</span>
+            <span>Fair prices</span>
+            <span className="text-gold">✦</span>
+            <span>No gatekeepers</span>
+            <span className="text-gold">✦</span>
+            <span>Every crest matters</span>
+          </div>
+        </div>
+      </section>
+
+
       <Section eyebrow="Handpicked" title="Featured Products" cta={{ label: "Shop all", to: "/shop" }}>
         <div className="grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">
           {featured.map((p) => <ProductCard key={p.id} product={p} />)}
