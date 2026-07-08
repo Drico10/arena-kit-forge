@@ -51,8 +51,7 @@ export function Footer() {
               IMPORTS<span className="gold-text">ARENA</span>
             </div>
             <p className="mt-4 max-w-sm text-sm text-muted-foreground">
-              Authentic football jerseys from the world's greatest clubs and national teams. Curated,
-              imported, delivered.
+              Football shirts for fans who live for the 90 minutes. Curated with love, priced with respect, shipped to your doorstep — wherever the game takes you.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               {socials.map(({ href, label, Icon }) => (
