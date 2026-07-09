@@ -11,7 +11,7 @@ const uniq = <K extends keyof (typeof products)[number]>(k: K) =>
   Array.from(new Set(products.map((p) => p[k] as string)));
 
 const emptyFilters = (category: string): Filters => ({
-  q: "", club: [], league: [], country: [], size: [], season: [], category, maxPrice: 200,
+  q: "", club: [], league: [], country: [], size: [], season: [], category, maxPrice: 1000,
 });
 
 export const Route = createFileRoute("/shop")({
@@ -28,7 +28,7 @@ function Shop() {
   const activeCount =
     filters.club.length + filters.league.length + filters.country.length +
     filters.size.length + filters.season.length +
-    (filters.category !== "all" ? 1 : 0) + (filters.maxPrice < 200 ? 1 : 0);
+    (filters.category !== "all" ? 1 : 0) + (filters.maxPrice < 1000 ? 1 : 0);
 
   const filtered = useMemo(() => {
     const list = products.filter((p) => {
@@ -74,24 +74,24 @@ function Shop() {
   const Sidebar = (
     <aside className="space-y-2">
       <div className="border-b border-border py-5">
-        <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-gold">Category</p>
+        <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-gold">Categoria</p>
         <select value={filters.category} onChange={(e) => setFilters((f) => ({ ...f, category: e.target.value }))}
           className="w-full rounded-md border border-border bg-background px-3 py-2 text-sm">
-          <option value="all">All categories</option>
-          <option value="clubs-br">Brazilian Clubs</option>
-          <option value="clubs-eu">European Clubs</option>
-          <option value="national">National Teams</option>
-          <option value="retro">Retro</option>
+          <option value="all">Todas as categorias</option>
+          <option value="clubs-br">Clubes Brasileiros</option>
+          <option value="clubs-eu">Clubes Europeus</option>
+          <option value="national">Seleções</option>
+          <option value="retro">Retrô</option>
         </select>
       </div>
-      <FilterGroup label="Club" values={uniq("club")} keyName="club" />
-      <FilterGroup label="League" values={uniq("league")} keyName="league" />
-      <FilterGroup label="Country" values={uniq("country")} keyName="country" />
-      <FilterGroup label="Season" values={uniq("season")} keyName="season" />
-      <FilterGroup label="Size" values={["S", "M", "L", "XL", "XXL"]} keyName="size" />
+      <FilterGroup label="Clube" values={uniq("club")} keyName="club" />
+      <FilterGroup label="Liga" values={uniq("league")} keyName="league" />
+      <FilterGroup label="País" values={uniq("country")} keyName="country" />
+      <FilterGroup label="Temporada" values={uniq("season")} keyName="season" />
+      <FilterGroup label="Tamanho" values={["P", "M", "G", "GG", "XGG"]} keyName="size" />
       <div className="py-5">
-        <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-gold">Max price: ${filters.maxPrice}</p>
-        <input type="range" min={50} max={200} value={filters.maxPrice}
+        <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-gold">Preço máximo: R$ {filters.maxPrice}</p>
+        <input type="range" min={200} max={1000} value={filters.maxPrice}
           onChange={(e) => setFilters((f) => ({ ...f, maxPrice: +e.target.value }))}
           className="w-full accent-gold" />
       </div>
@@ -101,21 +101,21 @@ function Shop() {
   return (
     <div className="container-x py-10 md:py-16">
       <div className="mb-8">
-        <p className="mb-2 text-xs uppercase tracking-[0.3em] text-gold">Shop</p>
-        <h1 className="font-display text-4xl md:text-6xl">All Jerseys</h1>
+        <p className="mb-2 text-xs uppercase tracking-[0.3em] text-gold">Loja</p>
+        <h1 className="font-display text-4xl md:text-6xl">Todas as camisas</h1>
       </div>
 
       <div className="mb-6 flex flex-col gap-3 md:flex-row md:items-center">
         <div className="relative flex-1">
           <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
           <input value={filters.q} onChange={(e) => setFilters((f) => ({ ...f, q: e.target.value }))}
-            placeholder="Search clubs, teams, seasons…"
+            placeholder="Busque por clube, seleção, temporada…"
             className="w-full rounded-md border border-border bg-background py-3 pl-10 pr-10 text-sm outline-none focus:border-gold" />
           {filters.q && (
             <button
               onClick={() => setFilters((f) => ({ ...f, q: "" }))}
               className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
-              aria-label="Clear search"
+              aria-label="Limpar busca"
             >
               <X className="h-4 w-4" />
             </button>
@@ -126,26 +126,26 @@ function Shop() {
           onChange={(e) => setSort(e.target.value as SortKey)}
           className="rounded-md border border-border bg-background px-3 py-3 text-sm outline-none focus:border-gold"
         >
-          <option value="featured">Featured</option>
-          <option value="newest">Newest</option>
-          <option value="price-asc">Price: Low to High</option>
-          <option value="price-desc">Price: High to Low</option>
-          <option value="rating">Top Rated</option>
+          <option value="featured">Destaques</option>
+          <option value="newest">Novidades</option>
+          <option value="price-asc">Preço: menor para maior</option>
+          <option value="price-desc">Preço: maior para menor</option>
+          <option value="rating">Mais bem avaliadas</option>
         </select>
         <button onClick={() => setMobileOpen(true)} className="inline-flex items-center justify-center gap-2 rounded-md border border-border px-4 py-3 text-sm md:hidden">
-          <SlidersHorizontal className="h-4 w-4" /> Filters
+          <SlidersHorizontal className="h-4 w-4" /> Filtros
           {activeCount > 0 && (
             <span className="grid h-5 min-w-5 place-items-center rounded-full bg-gold px-1.5 text-[10px] font-bold text-gold-foreground">{activeCount}</span>
           )}
         </button>
         <div className="flex items-center gap-4 md:ml-2">
-          <p className="text-sm text-muted-foreground">{filtered.length} products</p>
+          <p className="text-sm text-muted-foreground">{filtered.length} camisas</p>
           {activeCount > 0 && (
             <button
               onClick={() => setFilters(emptyFilters("all"))}
               className="text-xs font-medium uppercase tracking-widest text-gold hover:underline"
             >
-              Clear all
+              Limpar tudo
             </button>
           )}
         </div>
@@ -157,7 +157,7 @@ function Shop() {
         {mobileOpen && (
           <div className="fixed inset-0 z-50 bg-background md:hidden">
             <div className="flex items-center justify-between border-b border-border p-4">
-              <h3 className="font-display text-xl">Filters</h3>
+              <h3 className="font-display text-xl">Filtros</h3>
               <button onClick={() => setMobileOpen(false)}><X /></button>
             </div>
             <div className="max-h-[calc(100vh-64px)] overflow-y-auto p-4">{Sidebar}</div>
@@ -167,7 +167,7 @@ function Shop() {
         <div>
           {filtered.length === 0 ? (
             <div className="rounded-xl border border-border p-16 text-center text-muted-foreground">
-              No products match your filters.
+              Nenhuma camisa encontrada com esses filtros.
             </div>
           ) : (
             <div className="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6 xl:grid-cols-4">
