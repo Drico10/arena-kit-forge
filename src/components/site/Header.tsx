@@ -4,10 +4,10 @@ import { useEffect, useState } from "react";
 import { useStore } from "@/lib/store";
 
 const nav = [
-  { to: "/shop", label: "Shop" },
-  { to: "/categories", label: "Categories" },
-  { to: "/about", label: "About" },
-  { to: "/contact", label: "Contact" },
+  { to: "/shop", label: "Loja" },
+  { to: "/categories", label: "Categorias" },
+  { to: "/about", label: "Sobre" },
+  { to: "/contact", label: "Contato" },
 ];
 
 export function Header() {
@@ -24,19 +24,19 @@ export function Header() {
       {/* Free shipping banner */}
       <div className="overflow-hidden bg-gold text-gold-foreground">
         <div className="flex whitespace-nowrap py-1.5 text-xs font-semibold uppercase tracking-widest marquee">
-          <span className="mx-8">⚽ Free worldwide shipping over $150</span>
+          <span className="mx-8">⚽ Frete grátis pra todo Brasil acima de R$ 500</span>
           <span className="mx-8">✦</span>
-          <span className="mx-8">ARENA10 — 10% off your first shirt</span>
+          <span className="mx-8">ARENA10 — 10% OFF na sua primeira camisa</span>
           <span className="mx-8">✦</span>
-          <span className="mx-8">Made for fans, by fans</span>
+          <span className="mx-8">Feito por torcedor, pra torcedor</span>
           <span className="mx-8">✦</span>
-          <span className="mx-8">Matchday-ready · 5–10 day delivery</span>
+          <span className="mx-8">Entrega em 5–10 dias · Pronto pra próxima rodada</span>
           <span className="mx-8">✦</span>
-          <span className="mx-8">⚽ Free worldwide shipping over $150</span>
+          <span className="mx-8">⚽ Frete grátis pra todo Brasil acima de R$ 500</span>
           <span className="mx-8">✦</span>
-          <span className="mx-8">ARENA10 — 10% off your first shirt</span>
+          <span className="mx-8">ARENA10 — 10% OFF na sua primeira camisa</span>
           <span className="mx-8">✦</span>
-          <span className="mx-8">Made for fans, by fans</span>
+          <span className="mx-8">Feito por torcedor, pra torcedor</span>
           <span className="mx-8">✦</span>
         </div>
       </div>
@@ -66,20 +66,20 @@ export function Header() {
         </nav>
 
         <div className="ml-auto flex items-center gap-1 md:gap-2">
-          <button className="hidden rounded-full p-2 hover:bg-secondary md:inline-flex" aria-label="Search">
+          <button className="hidden rounded-full p-2 hover:bg-secondary md:inline-flex" aria-label="Buscar">
             <Search className="h-5 w-5" />
           </button>
           <button
             onClick={() => setLight((v) => !v)}
             className="rounded-full p-2 hover:bg-secondary"
-            aria-label="Toggle theme"
+            aria-label="Alternar tema"
           >
             {light ? <Moon className="h-5 w-5" /> : <Sun className="h-5 w-5" />}
           </button>
-          <Link to="/account" className="rounded-full p-2 hover:bg-secondary" aria-label="Account">
+          <Link to="/account" className="rounded-full p-2 hover:bg-secondary" aria-label="Minha conta">
             <User className="h-5 w-5" />
           </Link>
-          <Link to="/wishlist" className="relative rounded-full p-2 hover:bg-secondary" aria-label="Wishlist">
+          <Link to="/wishlist" className="relative rounded-full p-2 hover:bg-secondary" aria-label="Favoritos">
             <Heart className="h-5 w-5" />
             {wishlist.length > 0 && (
               <span className="absolute -right-0 -top-0 grid h-4 w-4 place-items-center rounded-full bg-gold text-[10px] font-bold text-gold-foreground">
@@ -87,7 +87,7 @@ export function Header() {
               </span>
             )}
           </Link>
-          <Link to="/cart" className="relative rounded-full p-2 hover:bg-secondary" aria-label="Cart">
+          <Link to="/cart" className="relative rounded-full p-2 hover:bg-secondary" aria-label="Carrinho">
             <ShoppingBag className="h-5 w-5" />
             {cartCount > 0 && (
               <span className="absolute -right-0 -top-0 grid h-4 w-4 place-items-center rounded-full bg-gold text-[10px] font-bold text-gold-foreground">
