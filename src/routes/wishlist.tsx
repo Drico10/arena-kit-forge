@@ -12,12 +12,12 @@ function Wishlist() {
 
   return (
     <div className="container-x py-10 md:py-16">
-      <h1 className="mb-8 font-display text-4xl md:text-5xl">Wishlist</h1>
+      <h1 className="mb-8 font-display text-4xl md:text-5xl">Favoritos</h1>
       {items.length === 0 ? (
         <div className="rounded-xl border border-border p-16 text-center">
           <Heart className="mx-auto h-12 w-12 text-muted-foreground" />
-          <p className="mt-4 text-muted-foreground">No favourites yet.</p>
-          <Link to="/shop" className="mt-6 inline-block btn-gold rounded-md px-6 py-3 text-sm uppercase tracking-widest">Browse jerseys</Link>
+          <p className="mt-4 text-muted-foreground">Você ainda não salvou nenhuma camisa.</p>
+          <Link to="/shop" className="mt-6 inline-block btn-gold rounded-md px-6 py-3 text-sm uppercase tracking-widest">Ver camisas</Link>
         </div>
       ) : (
         <div className="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6 xl:grid-cols-4">
