@@ -1,32 +1,32 @@
 import { createFileRoute } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/shipping")({
-  head: () => ({ meta: [{ title: "Shipping & Returns — Imports Arena" }, { name: "description", content: "Shipping times, costs and return policy for Imports Arena." }] }),
+  head: () => ({ meta: [{ title: "Frete e Trocas — Imports Arena" }, { name: "description", content: "Prazos, custos de entrega e política de trocas da Imports Arena." }] }),
   component: Shipping,
 });
 
 function Shipping() {
   return (
     <div className="container-x py-10 md:py-16">
-      <p className="text-xs uppercase tracking-[0.3em] text-gold">Policies</p>
-      <h1 className="mt-2 font-display text-4xl md:text-6xl">Shipping & Returns</h1>
+      <p className="text-xs uppercase tracking-[0.3em] text-gold">Políticas</p>
+      <h1 className="mt-2 font-display text-4xl md:text-6xl">Frete e Trocas</h1>
       <div className="mt-10 grid gap-8 md:grid-cols-2">
         <section className="rounded-xl border border-border bg-card p-6">
-          <h2 className="font-display text-2xl">Shipping</h2>
+          <h2 className="font-display text-2xl">Entrega</h2>
           <ul className="mt-4 space-y-3 text-sm text-foreground/85">
-            <li>• Free worldwide shipping on orders over $150.</li>
-            <li>• Standard: 5–10 business days.</li>
-            <li>• Express: 2–4 business days (calculated at checkout).</li>
-            <li>• Tracking sent by email once your order ships.</li>
+            <li>• Frete grátis em pedidos acima de R$ 500.</li>
+            <li>• Envio padrão: 5–10 dias úteis.</li>
+            <li>• Envio expresso: 2–4 dias úteis (calculado no checkout).</li>
+            <li>• Código de rastreio enviado por e-mail assim que a camisa sair.</li>
           </ul>
         </section>
         <section className="rounded-xl border border-border bg-card p-6">
-          <h2 className="font-display text-2xl">Returns</h2>
+          <h2 className="font-display text-2xl">Trocas e devoluções</h2>
           <ul className="mt-4 space-y-3 text-sm text-foreground/85">
-            <li>• 30-day return window from delivery.</li>
-            <li>• Items must be unworn with original tags.</li>
-            <li>• Personalized items are final sale.</li>
-            <li>• Refunds processed within 7 business days.</li>
+            <li>• 30 dias a partir do recebimento pra trocar ou devolver.</li>
+            <li>• A camisa precisa estar sem uso e com etiqueta original.</li>
+            <li>• Itens personalizados (nome/número) não têm troca.</li>
+            <li>• Reembolso em até 7 dias úteis depois da análise.</li>
           </ul>
         </section>
       </div>

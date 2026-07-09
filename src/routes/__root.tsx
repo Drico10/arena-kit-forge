@@ -22,12 +22,12 @@ function NotFoundComponent() {
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
         <h1 className="font-display text-7xl gold-text">404</h1>
-        <h2 className="mt-4 text-xl font-semibold">Off target</h2>
+        <h2 className="mt-4 text-xl font-semibold">Chutou pra fora</h2>
         <p className="mt-2 text-sm text-muted-foreground">
-          This page doesn't exist. Get back on the pitch.
+          Essa página não existe. Bora voltar pro gramado.
         </p>
         <Link to="/" className="mt-6 inline-flex btn-gold rounded-md px-5 py-2.5 text-sm">
-          Back home
+          Voltar pro início
         </Link>
       </div>
     </div>
@@ -43,17 +43,17 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
-        <h1 className="text-xl font-semibold">Something went wrong</h1>
-        <p className="mt-2 text-sm text-muted-foreground">Try again or head home.</p>
+        <h1 className="text-xl font-semibold">Alguma coisa deu ruim</h1>
+        <p className="mt-2 text-sm text-muted-foreground">Tenta de novo ou volta pro início.</p>
         <div className="mt-6 flex justify-center gap-2">
           <button
             onClick={() => { router.invalidate(); reset(); }}
             className="btn-gold rounded-md px-5 py-2.5 text-sm"
           >
-            Try again
+            Tentar de novo
           </button>
           <a href="/" className="rounded-md border border-border px-5 py-2.5 text-sm hover:bg-secondary">
-            Home
+            Início
           </a>
         </div>
       </div>
@@ -66,10 +66,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Imports Arena — Football Shirts for Real Fans" },
-      { name: "description", content: "Football jerseys for real fans. Top clubs, national teams and retro classics — fair prices, worldwide shipping. Free over $150." },
-      { property: "og:title", content: "Imports Arena — Football Shirts for Real Fans" },
-      { property: "og:description", content: "Made for fans, by fans. Football jerseys from top clubs, national teams and retro icons — priced fair, shipped worldwide." },
+      { title: "Imports Arena — Camisas de Futebol pra Quem Torce de Verdade" },
+      { name: "description", content: "Camisas de futebol pra torcedor de verdade. Grandes clubes, seleções e retrôs eternas — preço justo e entrega pra todo o Brasil. Frete grátis acima de R$ 500." },
+      { property: "og:title", content: "Imports Arena — Camisas de Futebol pra Quem Torce de Verdade" },
+      { property: "og:description", content: "Feita por torcedor, pra torcedor. Camisas de grandes clubes, seleções e retrôs eternas — com preço justo e entrega no Brasil todo." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -89,7 +89,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="pt-BR">
       <head>
         <HeadContent />
       </head>
