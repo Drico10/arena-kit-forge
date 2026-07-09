@@ -19,13 +19,13 @@ export const Route = createFileRoute("/product/$slug")({
           { title: `${loaderData.product.name} — Imports Arena` },
           { name: "description", content: loaderData.product.description },
         ]
-      : [{ title: "Not found" }, { name: "robots", content: "noindex" }],
+      : [{ title: "Não encontrado" }, { name: "robots", content: "noindex" }],
   }),
   component: ProductPage,
   notFoundComponent: () => (
     <div className="container-x py-24 text-center">
-      <h1 className="font-display text-4xl">Product not found</h1>
-      <Link to="/shop" className="mt-4 inline-block text-gold hover:underline">Back to shop</Link>
+      <h1 className="font-display text-4xl">Camisa não encontrada</h1>
+      <Link to="/shop" className="mt-4 inline-block text-gold hover:underline">Voltar pra loja</Link>
     </div>
   ),
 });
@@ -42,13 +42,13 @@ function ProductPage() {
 
   const add = () => {
     addToCart({ id: product.id, slug: product.slug, name: product.name, price: product.price, image: product.image, size }, qty);
-    toast.success(`Added to cart — ${product.name} (${size})`);
+    toast.success(`Adicionado ao carrinho — ${product.name} (${size})`);
   };
 
   return (
     <div className="container-x py-10 md:py-16">
       <nav className="mb-6 text-xs uppercase tracking-widest text-muted-foreground">
-        <Link to="/" className="hover:text-gold">Home</Link> / <Link to="/shop" className="hover:text-gold">Shop</Link> / <span className="text-foreground">{product.name}</span>
+        <Link to="/" className="hover:text-gold">Início</Link> / <Link to="/shop" className="hover:text-gold">Loja</Link> / <span className="text-foreground">{product.name}</span>
       </nav>
 
       <div className="grid gap-10 lg:grid-cols-2">
@@ -86,7 +86,7 @@ function ProductPage() {
             <div className="flex text-gold">
               {Array.from({ length: 5 }).map((_, i) => <Star key={i} className={cn("h-4 w-4", i < Math.round(product.rating) && "fill-current")} />)}
             </div>
-            <span className="text-sm text-muted-foreground">{product.rating} · {product.reviews} reviews</span>
+            <span className="text-sm text-muted-foreground">{product.rating} · {product.reviews} avaliações</span>
           </div>
 
           <div className="mt-6 flex items-baseline gap-3">
@@ -98,9 +98,9 @@ function ProductPage() {
 
           <div className="mt-8">
             <div className="mb-3 flex items-center justify-between">
-              <p className="text-xs font-semibold uppercase tracking-widest">Size</p>
+              <p className="text-xs font-semibold uppercase tracking-widest">Tamanho</p>
               <button className="inline-flex items-center gap-1 text-xs uppercase tracking-widest text-gold hover:underline">
-                <Ruler className="h-3 w-3" /> Size guide
+                <Ruler className="h-3 w-3" /> Guia de tamanhos
               </button>
             </div>
             <div className="flex flex-wrap gap-2">
@@ -121,7 +121,7 @@ function ProductPage() {
               <button onClick={() => setQty((q) => q + 1)} className="grid h-11 w-11 place-items-center hover:bg-secondary"><Plus className="h-4 w-4" /></button>
             </div>
             <button onClick={add} className="flex flex-1 items-center justify-center gap-2 rounded-md border border-border bg-foreground py-3 text-sm font-semibold uppercase tracking-widest text-background transition hover:bg-gold hover:text-gold-foreground">
-              <ShoppingBag className="h-4 w-4" /> Add to cart
+              <ShoppingBag className="h-4 w-4" /> Adicionar ao carrinho
             </button>
             <button onClick={() => toggleWishlist(product.slug)} className={cn("grid h-11 w-11 place-items-center rounded-md border border-border transition hover:border-gold", fav && "border-gold text-gold")}>
               <Heart className={cn("h-4 w-4", fav && "fill-current")} />
@@ -129,25 +129,25 @@ function ProductPage() {
           </div>
 
           <button onClick={add} className="mt-3 w-full btn-gold rounded-md py-3.5 text-sm uppercase tracking-widest">
-            Buy now
+            Comprar agora
           </button>
 
           <div className="mt-8 grid grid-cols-3 gap-3 border-t border-border pt-6 text-xs text-muted-foreground">
-            <div className="flex flex-col items-start gap-1"><Truck className="h-4 w-4 text-gold" /> Free shipping over $150</div>
-            <div className="flex flex-col items-start gap-1"><RefreshCcw className="h-4 w-4 text-gold" /> 30-day returns</div>
-            <div className="flex flex-col items-start gap-1"><ShieldCheck className="h-4 w-4 text-gold" /> Authentic guarantee</div>
+            <div className="flex flex-col items-start gap-1"><Truck className="h-4 w-4 text-gold" /> Frete grátis acima de R$ 500</div>
+            <div className="flex flex-col items-start gap-1"><RefreshCcw className="h-4 w-4 text-gold" /> Trocas em 30 dias</div>
+            <div className="flex flex-col items-start gap-1"><ShieldCheck className="h-4 w-4 text-gold" /> Garantia de originalidade</div>
           </div>
         </div>
       </div>
 
       {/* Reviews */}
       <section className="mt-20">
-        <h2 className="mb-6 font-display text-3xl">Customer reviews</h2>
+        <h2 className="mb-6 font-display text-3xl">Avaliações da torcida</h2>
         <div className="grid gap-4 md:grid-cols-3">
           {[
-            { n: "Diego R.", t: "Perfect fit, love the fabric.", r: 5 },
-            { n: "Emma L.", t: "Colors are vibrant, arrived quickly.", r: 5 },
-            { n: "Marco T.", t: "Second one I buy — never disappoints.", r: 4 },
+            { n: "Diego R.", t: "Caimento perfeito, tecido excelente.", r: 5 },
+            { n: "Marina L.", t: "Cores vivas e chegou super rápido.", r: 5 },
+            { n: "Marco T.", t: "Segunda que eu compro — nunca decepciona.", r: 4 },
           ].map((r) => (
             <div key={r.n} className="rounded-xl border border-border bg-card p-5">
               <div className="flex text-gold">{Array.from({ length: r.r }).map((_, i) => <Star key={i} className="h-4 w-4 fill-current" />)}</div>
@@ -160,7 +160,7 @@ function ProductPage() {
 
       {related.length > 0 && (
         <section className="mt-20">
-          <h2 className="mb-6 font-display text-3xl">You may also like</h2>
+          <h2 className="mb-6 font-display text-3xl">Você também vai gostar</h2>
           <div className="grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">
             {related.map((p) => <ProductCard key={p.id} product={p} />)}
           </div>

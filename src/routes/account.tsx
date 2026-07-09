@@ -5,16 +5,16 @@ export const Route = createFileRoute("/account")({ component: Account });
 
 function Account() {
   const tiles = [
-    { icon: Package, title: "Orders", desc: "Track and view past orders", to: "/orders" },
-    { icon: Heart, title: "Wishlist", desc: "Saved items", to: "/wishlist" },
-    { icon: MapPin, title: "Addresses", desc: "Manage shipping addresses", to: "/account" },
-    { icon: User, title: "Profile", desc: "Personal info & password", to: "/account" },
+    { icon: Package, title: "Pedidos", desc: "Acompanhe e veja seu histórico", to: "/orders" },
+    { icon: Heart, title: "Favoritos", desc: "Suas camisas salvas", to: "/wishlist" },
+    { icon: MapPin, title: "Endereços", desc: "Gerencie seus endereços de entrega", to: "/account" },
+    { icon: User, title: "Perfil", desc: "Dados pessoais e senha", to: "/account" },
   ];
   return (
     <div className="container-x py-10 md:py-16">
-      <p className="text-xs uppercase tracking-[0.3em] text-gold">My account</p>
-      <h1 className="mt-2 font-display text-4xl md:text-5xl">Welcome back, Champion</h1>
-      <p className="mt-2 text-muted-foreground">Manage your Imports Arena experience.</p>
+      <p className="text-xs uppercase tracking-[0.3em] text-gold">Minha conta</p>
+      <h1 className="mt-2 font-display text-4xl md:text-5xl">Bem-vindo de volta, Craque</h1>
+      <p className="mt-2 text-muted-foreground">Gerencie sua experiência na Imports Arena.</p>
 
       <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         {tiles.map((t) => (
@@ -28,23 +28,23 @@ function Account() {
 
       <div className="mt-10 grid gap-6 md:grid-cols-2">
         <section className="rounded-xl border border-border bg-card p-6">
-          <h2 className="font-display text-xl">Profile</h2>
+          <h2 className="font-display text-xl">Perfil</h2>
           <dl className="mt-4 grid grid-cols-[120px_1fr] gap-y-2 text-sm">
-            <dt className="text-muted-foreground">Name</dt><dd>Champion Player</dd>
-            <dt className="text-muted-foreground">Email</dt><dd>champion@arena.com</dd>
-            <dt className="text-muted-foreground">Member since</dt><dd>2024</dd>
+            <dt className="text-muted-foreground">Nome</dt><dd>Torcedor Craque</dd>
+            <dt className="text-muted-foreground">E-mail</dt><dd>craque@arena.com</dd>
+            <dt className="text-muted-foreground">Cliente desde</dt><dd>2024</dd>
           </dl>
         </section>
         <section className="rounded-xl border border-border bg-card p-6">
-          <h2 className="font-display text-xl">Default address</h2>
+          <h2 className="font-display text-xl">Endereço padrão</h2>
           <p className="mt-4 text-sm text-muted-foreground">
-            Champion Player<br/>123 Maracanã Ave<br/>Rio de Janeiro, Brazil
+            Torcedor Craque<br/>Av. Maracanã, 123<br/>Rio de Janeiro, RJ
           </p>
         </section>
       </div>
 
       <button className="mt-8 inline-flex items-center gap-2 rounded-md border border-border px-5 py-3 text-sm hover:border-destructive hover:text-destructive">
-        <LogOut className="h-4 w-4" /> Sign out
+        <LogOut className="h-4 w-4" /> Sair
       </button>
     </div>
   );
