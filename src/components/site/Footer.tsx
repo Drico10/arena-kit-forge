@@ -3,29 +3,29 @@ import { Instagram, MessageCircle, Mail, HelpCircle, Truck } from "lucide-react"
 
 const cols = [
   {
-    title: "Shop",
+    title: "Loja",
     links: [
-      { to: "/shop", label: "All Jerseys" },
-      { to: "/categories", label: "Categories" },
-      { to: "/shop?category=retro", label: "Retro" },
-      { to: "/shop?category=national", label: "National Teams" },
+      { to: "/shop", label: "Todas as camisas" },
+      { to: "/categories", label: "Categorias" },
+      { to: "/shop?category=retro", label: "Retrô" },
+      { to: "/shop?category=national", label: "Seleções" },
     ],
   },
   {
-    title: "Help",
+    title: "Ajuda",
     links: [
-      { to: "/contact", label: "Contact" },
-      { to: "/faq", label: "FAQ" },
-      { to: "/shipping", label: "Shipping & Returns" },
-      { to: "/orders", label: "Track Order" },
+      { to: "/contact", label: "Fale com a gente" },
+      { to: "/faq", label: "Perguntas frequentes" },
+      { to: "/shipping", label: "Frete e trocas" },
+      { to: "/orders", label: "Rastrear pedido" },
     ],
   },
   {
-    title: "Company",
+    title: "Institucional",
     links: [
-      { to: "/about", label: "About Us" },
-      { to: "/privacy", label: "Privacy Policy" },
-      { to: "/terms", label: "Terms of Service" },
+      { to: "/about", label: "Nossa história" },
+      { to: "/privacy", label: "Política de privacidade" },
+      { to: "/terms", label: "Termos de uso" },
     ],
   },
 ];
@@ -36,9 +36,9 @@ const socials = [
 ];
 
 const quick = [
-  { to: "/contact", label: "Contact", Icon: Mail },
-  { to: "/faq", label: "FAQ", Icon: HelpCircle },
-  { to: "/shipping", label: "Shipping & Returns", Icon: Truck },
+  { to: "/contact", label: "Contato", Icon: Mail },
+  { to: "/faq", label: "Dúvidas", Icon: HelpCircle },
+  { to: "/shipping", label: "Frete e trocas", Icon: Truck },
 ];
 
 export function Footer() {
@@ -51,7 +51,7 @@ export function Footer() {
               IMPORTS<span className="gold-text">ARENA</span>
             </div>
             <p className="mt-4 max-w-sm text-sm text-muted-foreground">
-              Football shirts for fans who live for the 90 minutes. Curated with love, priced with respect, shipped to your doorstep — wherever the game takes you.
+              Camisas de futebol pra quem vive os 90 minutos. Escolhidas com carinho, com preço justo e entregues na sua casa — de Norte a Sul do Brasil (e do mundo).
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               {socials.map(({ href, label, Icon }) => (
@@ -93,8 +93,8 @@ export function Footer() {
         </div>
 
         <div className="mt-12 flex flex-col items-start justify-between gap-4 border-t border-border pt-6 text-xs text-muted-foreground md:flex-row md:items-center">
-          <p>© {new Date().getFullYear()} Imports Arena. All rights reserved.</p>
-          <p>Payments: Visa · Mastercard · Amex · PayPal · Apple Pay</p>
+          <p>© {new Date().getFullYear()} Imports Arena. Todos os direitos reservados.</p>
+          <p>Pagamentos: Pix · Visa · Mastercard · Elo · Amex · Boleto</p>
         </div>
       </div>
     </footer>
