@@ -78,9 +78,9 @@ export function StoreProvider({ children }: { children: ReactNode }) {
 
 export const useStore = () => {
   const ctx = useContext(StoreCtx);
-  if (!ctx) throw new Error("useStore must be used within StoreProvider");
+  if (!ctx) throw new Error("useStore deve ser usado dentro de StoreProvider");
   return ctx;
 };
 
 export const formatPrice = (n: number) =>
-  new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(n);
+  new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" }).format(n);
