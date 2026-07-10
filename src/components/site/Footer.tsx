@@ -93,7 +93,12 @@ export function Footer() {
         </div>
 
         <div className="mt-12 flex flex-col items-start justify-between gap-4 border-t border-border pt-6 text-xs text-muted-foreground md:flex-row md:items-center">
-          <p>© {new Date().getFullYear()} Imports Arena. Todos os direitos reservados.</p>
+          <div className="flex flex-col gap-2">
+            <p>© {new Date().getFullYear()} Imports Arena. Todos os direitos reservados.</p>
+            <p className="max-w-2xl text-[11px] text-muted-foreground/70">
+              Projeto conceitual desenvolvido para fins de portfólio. Esta loja é demonstrativa e não realiza vendas reais.
+            </p>
+          </div>
           <p>Pagamentos: Pix · Visa · Mastercard · Elo · Amex · Boleto</p>
         </div>
       </div>

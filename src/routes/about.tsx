@@ -14,10 +14,10 @@ function About() {
       </h1>
       <div className="mt-10 grid gap-10 md:grid-cols-2">
         <p className="text-lg text-foreground/85">
-          A Imports Arena nasceu em 2019, num apartamento pequeno, com um notebook, um pôster do Mengão na parede e uma teimosia: torcedor de qualquer lugar merece a camisa do seu time — sem pagar preço de gringo e sem esperar meses por uma encomenda que nunca chega.
+          A Imports Arena nasceu em 2020 com um objetivo simples: aproximar os apaixonados por futebol das camisas que representam suas histórias. O que começou como um pequeno projeto, movido pela paixão pelo esporte e pelo desejo de oferecer produtos de qualidade a preços justos, cresceu graças à confiança de milhares de torcedores.
         </p>
         <p className="text-lg text-foreground/85">
-          Seis anos depois, a gente continua o mesmo. Trazemos camisas do Brasil, da Europa e daquelas ligas que só torcedor de verdade acompanha. A gente mesmo responde as mensagens. Vestimos o que a gente vende. E cobramos preço justo — porque amar futebol não pode custar um salário inteiro.
+          Hoje, seguimos com a mesma missão: levar camisas de clubes e seleções do mundo inteiro para quem vive o futebol dentro e fora das quatro linhas.
         </p>
       </div>
 
