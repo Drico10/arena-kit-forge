@@ -1,105 +1,117 @@
-import { Link } from "@tanstack/react-router";
-import { Instagram, MessageCircle, Mail, HelpCircle, Truck } from "lucide-react";
+import { Phone, Mail, MapPin, Instagram, Linkedin, Facebook, MessageCircle } from "lucide-react";
 
-const cols = [
-  {
-    title: "Loja",
-    links: [
-      { to: "/shop", label: "Todas as camisas" },
-      { to: "/categories", label: "Categorias" },
-      { to: "/shop?category=retro", label: "Retrô" },
-      { to: "/shop?category=national", label: "Seleções" },
-    ],
-  },
-  {
-    title: "Ajuda",
-    links: [
-      { to: "/contact", label: "Fale com a gente" },
-      { to: "/faq", label: "Perguntas frequentes" },
-      { to: "/shipping", label: "Frete e trocas" },
-      { to: "/orders", label: "Rastrear pedido" },
-    ],
-  },
-  {
-    title: "Institucional",
-    links: [
-      { to: "/about", label: "Nossa história" },
-      { to: "/privacy", label: "Política de privacidade" },
-      { to: "/terms", label: "Termos de uso" },
-    ],
-  },
+const services = [
+  "Vale Alimentação",
+  "Vale Refeição",
+  "Plano de Saúde",
+  "Plano Odontológico",
+  "Seguro de Vida",
+  "Benefícios Flexíveis",
 ];
 
-const socials = [
-  { href: "https://instagram.com", label: "Instagram", Icon: Instagram },
-  { href: "https://wa.me/00000000000", label: "WhatsApp", Icon: MessageCircle },
-];
-
-const quick = [
-  { to: "/contact", label: "Contato", Icon: Mail },
-  { to: "/faq", label: "Dúvidas", Icon: HelpCircle },
-  { to: "/shipping", label: "Frete e trocas", Icon: Truck },
+const institucional = [
+  { href: "#quem-somos", label: "Quem Somos" },
+  { href: "#diferenciais", label: "Diferenciais" },
+  { href: "#como-funciona", label: "Como Funciona" },
+  { href: "#faq", label: "FAQ" },
+  { href: "#contato", label: "Contato" },
 ];
 
 export function Footer() {
   return (
-    <footer className="border-t border-border bg-card mt-24">
+    <footer id="contato" className="mt-24 border-t border-border bg-secondary">
       <div className="container-x py-16">
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-5">
-          <div className="lg:col-span-2">
-            <div className="font-display text-3xl">
-              IMPORTS<span className="gold-text">ARENA</span>
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+          <div>
+            <div className="flex items-center gap-2.5">
+              <span className="grid h-9 w-9 place-items-center rounded-xl gradient-brand text-white font-display text-lg font-bold">
+                R
+              </span>
+              <span className="flex flex-col leading-none">
+                <span className="font-display text-base font-bold text-brand">Rota Brasil</span>
+                <span className="text-[10px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
+                  Benefícios
+                </span>
+              </span>
             </div>
-            <p className="mt-4 max-w-sm text-sm text-muted-foreground">
-              Camisas de futebol pra quem vive os 90 minutos. Escolhidas com carinho, com preço justo e entregues na sua casa — de Norte a Sul do Brasil (e do mundo).
+            <p className="mt-5 max-w-xs text-sm leading-relaxed text-muted-foreground">
+              Consultoria especializada em benefícios corporativos, com atendimento personalizado
+              para empresas de todo o Brasil.
             </p>
-            <div className="mt-6 flex flex-wrap gap-3">
-              {socials.map(({ href, label, Icon }) => (
+            <div className="mt-6 flex gap-2">
+              {[
+                { Icon: Instagram, label: "Instagram", href: "#" },
+                { Icon: Linkedin, label: "LinkedIn", href: "#" },
+                { Icon: Facebook, label: "Facebook", href: "#" },
+              ].map(({ Icon, label, href }) => (
                 <a
                   key={label}
                   href={href}
-                  target="_blank"
-                  rel="noopener"
                   aria-label={label}
-                  className="inline-flex items-center gap-2 rounded-full border border-border px-3.5 py-2 text-xs font-medium uppercase tracking-widest transition hover:border-gold hover:text-gold"
+                  className="grid h-10 w-10 place-items-center rounded-full border border-border bg-white text-brand transition hover:border-primary hover:text-primary"
                 >
-                  <Icon className="h-4 w-4" /> {label}
+                  <Icon className="h-4 w-4" />
                 </a>
               ))}
             </div>
-            <div className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-xs text-muted-foreground">
-              {quick.map(({ to, label, Icon }) => (
-                <Link key={to} to={to} className="inline-flex items-center gap-1.5 transition hover:text-gold">
-                  <Icon className="h-3.5 w-3.5" /> {label}
-                </Link>
-              ))}
-            </div>
           </div>
 
-          {cols.map((c) => (
-            <div key={c.title}>
-              <h4 className="mb-4 text-sm font-semibold uppercase tracking-widest text-gold">{c.title}</h4>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                {c.links.map((l) => (
-                  <li key={l.to + l.label}>
-                    <Link to={l.to} className="transition hover:text-foreground">
-                      {l.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          <div>
+            <h4 className="text-sm font-semibold uppercase tracking-wider text-brand">Serviços</h4>
+            <ul className="mt-5 space-y-3 text-sm text-muted-foreground">
+              {services.map((s) => (
+                <li key={s}>
+                  <a href="#servicos" className="transition hover:text-primary">
+                    {s}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-sm font-semibold uppercase tracking-wider text-brand">Institucional</h4>
+            <ul className="mt-5 space-y-3 text-sm text-muted-foreground">
+              {institucional.map((l) => (
+                <li key={l.href}>
+                  <a href={l.href} className="transition hover:text-primary">
+                    {l.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-sm font-semibold uppercase tracking-wider text-brand">Contato</h4>
+            <ul className="mt-5 space-y-3 text-sm text-muted-foreground">
+              <li className="flex items-start gap-2.5">
+                <Phone className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                <span>(00) 0000-0000</span>
+              </li>
+              <li className="flex items-start gap-2.5">
+                <MessageCircle className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                <a href="https://wa.me/5500000000000" className="transition hover:text-primary">
+                  WhatsApp: (00) 00000-0000
+                </a>
+              </li>
+              <li className="flex items-start gap-2.5">
+                <Mail className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                <a href="mailto:contato@rotabrasilbeneficios.com.br" className="transition hover:text-primary">
+                  contato@rotabrasilbeneficios.com.br
+                </a>
+              </li>
+              <li className="flex items-start gap-2.5">
+                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                <span>Endereço da empresa — Cidade / UF</span>
+              </li>
+            </ul>
+          </div>
         </div>
 
-        <div className="mt-12 flex flex-col items-start justify-between gap-4 border-t border-border pt-6 text-xs text-muted-foreground md:flex-row md:items-center">
-          <div className="flex flex-col gap-2">
-            <p>© {new Date().getFullYear()} Imports Arena. Todos os direitos reservados.</p>
-            <p className="max-w-2xl text-[11px] text-muted-foreground/70">
-              Projeto conceitual desenvolvido para fins de portfólio. Esta loja é demonstrativa e não realiza vendas reais.
-            </p>
-          </div>
-          <p>Pagamentos: Pix · Visa · Mastercard · Elo · Amex · Boleto</p>
+        <div className="mt-12 flex flex-col items-start justify-between gap-3 border-t border-border pt-6 text-xs text-muted-foreground md:flex-row md:items-center">
+          <p>© {new Date().getFullYear()} Rota Brasil Benefícios. Todos os direitos reservados.</p>
+          <p>CNPJ 00.000.000/0001-00 · Atendimento em todo o Brasil</p>
         </div>
       </div>
     </footer>

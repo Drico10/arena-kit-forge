@@ -5,13 +5,14 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --font-display: "Bebas Neue", "Impact", sans-serif;
+  --font-display: "Plus Jakarta Sans", "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
 
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -27,63 +28,54 @@
   --color-muted-foreground: var(--muted-foreground);
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
-  --color-gold: var(--gold);
-  --color-gold-foreground: var(--gold-foreground);
+  --color-brand: var(--brand);
+  --color-brand-foreground: var(--brand-foreground);
+  --color-whatsapp: var(--whatsapp);
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
 
-  --shadow-gold: 0 10px 40px -10px color-mix(in oklab, var(--gold) 45%, transparent);
-  --shadow-elevated: 0 20px 60px -20px oklch(0 0 0 / 0.5);
+  --shadow-soft: 0 4px 24px -8px oklch(0.2 0.08 260 / 0.10);
+  --shadow-elevated: 0 24px 60px -24px oklch(0.2 0.08 260 / 0.22);
+  --shadow-brand: 0 20px 50px -20px oklch(0.45 0.22 265 / 0.45);
 }
 
 :root {
-  --radius: 0.5rem;
-  /* Dark-first premium palette */
-  --background: oklch(0.14 0 0);
-  --foreground: oklch(0.98 0 0);
-  --card: oklch(0.18 0 0);
-  --card-foreground: oklch(0.98 0 0);
-  --popover: oklch(0.16 0 0);
-  --popover-foreground: oklch(0.98 0 0);
-  --primary: oklch(0.98 0 0);
-  --primary-foreground: oklch(0.14 0 0);
-  --secondary: oklch(0.24 0 0);
-  --secondary-foreground: oklch(0.98 0 0);
-  --muted: oklch(0.22 0 0);
-  --muted-foreground: oklch(0.7 0 0);
-  --accent: oklch(0.82 0.14 85);
-  --accent-foreground: oklch(0.14 0 0);
-  --gold: oklch(0.82 0.14 85);
-  --gold-foreground: oklch(0.14 0 0);
-  --destructive: oklch(0.62 0.22 25);
-  --destructive-foreground: oklch(0.98 0 0);
-  --border: oklch(1 0 0 / 0.1);
-  --input: oklch(1 0 0 / 0.14);
-  --ring: oklch(0.82 0.14 85);
-}
+  --radius: 0.875rem;
 
-.light {
+  /* Rota Brasil Benefícios palette */
+  /* #0A2A66 primary navy */
+  --brand: oklch(0.28 0.13 262);
+  --brand-foreground: oklch(0.99 0 0);
+  /* #2563EB secondary blue */
+  --primary: oklch(0.55 0.22 265);
+  --primary-foreground: oklch(1 0 0);
+
   --background: oklch(1 0 0);
-  --foreground: oklch(0.14 0 0);
-  --card: oklch(0.99 0 0);
-  --card-foreground: oklch(0.14 0 0);
+  --foreground: oklch(0.26 0.03 258); /* #334155-ish */
+
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.26 0.03 258);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.14 0 0);
-  --primary: oklch(0.14 0 0);
-  --primary-foreground: oklch(0.98 0 0);
-  --secondary: oklch(0.96 0 0);
-  --secondary-foreground: oklch(0.14 0 0);
-  --muted: oklch(0.96 0 0);
-  --muted-foreground: oklch(0.45 0 0);
-  --accent: oklch(0.72 0.15 80);
-  --accent-foreground: oklch(0.14 0 0);
-  --gold: oklch(0.72 0.15 80);
-  --gold-foreground: oklch(0.14 0 0);
-  --border: oklch(0 0 0 / 0.1);
-  --input: oklch(0 0 0 / 0.12);
+  --popover-foreground: oklch(0.26 0.03 258);
+
+  --secondary: oklch(0.975 0.005 250); /* #F8FAFC */
+  --secondary-foreground: oklch(0.28 0.13 262);
+  --muted: oklch(0.975 0.005 250);
+  --muted-foreground: oklch(0.5 0.02 258);
+  --accent: oklch(0.96 0.02 260);
+  --accent-foreground: oklch(0.28 0.13 262);
+
+  --whatsapp: oklch(0.72 0.18 148);
+
+  --destructive: oklch(0.6 0.22 27);
+  --destructive-foreground: oklch(1 0 0);
+
+  --border: oklch(0.92 0.01 258);
+  --input: oklch(0.92 0.01 258);
+  --ring: oklch(0.55 0.22 265);
 }
 
 @layer base {
@@ -92,52 +84,84 @@
   }
   html {
     font-family: var(--font-sans);
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
   }
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
   }
-  h1, h2, h3, .font-display {
+  h1, h2, h3, h4, .font-display {
     font-family: var(--font-display);
-    letter-spacing: 0.02em;
+    letter-spacing: -0.02em;
+    color: var(--color-brand);
   }
 }
 
 @utility container-x {
   width: 100%;
   margin-inline: auto;
-  padding-inline: 1rem;
-  max-width: 1400px;
+  padding-inline: 1.25rem;
+  max-width: 1200px;
   @media (min-width: 768px) {
     padding-inline: 2rem;
   }
 }
 
-@utility gold-text {
-  background: linear-gradient(135deg, oklch(0.9 0.14 90), oklch(0.72 0.15 75));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-@utility btn-gold {
-  background: linear-gradient(135deg, oklch(0.88 0.14 88), oklch(0.72 0.15 75));
-  color: var(--gold-foreground);
+@utility btn-primary {
+  background: var(--color-primary);
+  color: var(--color-primary-foreground);
   font-weight: 600;
-  transition: all 0.25s ease;
+  transition: all 0.2s ease;
   &:hover {
-    box-shadow: var(--shadow-gold);
+    background: color-mix(in oklab, var(--color-primary) 88%, black);
+    box-shadow: var(--shadow-brand);
     transform: translateY(-1px);
   }
 }
 
-@utility marquee {
-  animation: marquee 30s linear infinite;
+@utility btn-outline {
+  background: transparent;
+  color: var(--color-brand);
+  border: 1px solid var(--color-border);
+  font-weight: 600;
+  transition: all 0.2s ease;
+  &:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+  }
 }
 
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+@utility btn-whatsapp {
+  background: var(--color-whatsapp);
+  color: white;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  &:hover {
+    background: color-mix(in oklab, var(--color-whatsapp) 88%, black);
+    transform: translateY(-1px);
+    box-shadow: 0 20px 40px -18px color-mix(in oklab, var(--color-whatsapp) 60%, transparent);
+  }
+}
+
+@utility gradient-brand {
+  background: linear-gradient(135deg, oklch(0.28 0.13 262) 0%, oklch(0.42 0.20 265) 100%);
+}
+
+@utility gradient-soft {
+  background: radial-gradient(1200px 600px at 100% -10%, oklch(0.94 0.05 260 / 0.7), transparent 60%),
+              radial-gradient(800px 500px at -10% 20%, oklch(0.94 0.03 250 / 0.6), transparent 60%);
+}
+
+@utility reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  animation: reveal-in 0.7s ease-out forwards;
+}
+
+@keyframes reveal-in {
+  to { opacity: 1; transform: translateY(0); }
 }
