@@ -31,6 +31,7 @@
   --color-brand: var(--brand);
   --color-brand-foreground: var(--brand-foreground);
   --color-whatsapp: var(--whatsapp);
+  --color-gold: var(--gold);
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
   --color-border: var(--border);
@@ -45,30 +46,34 @@
 :root {
   --radius: 0.875rem;
 
-  /* Rota Brasil Benefícios palette */
-  /* #0A2A66 primary navy */
-  --brand: oklch(0.28 0.13 262);
+  /* Rota Brasil Benefícios — Proteção Veicular */
+  /* #003B8E navy primary */
+  --brand: oklch(0.32 0.15 260);
   --brand-foreground: oklch(0.99 0 0);
   /* #2563EB secondary blue */
   --primary: oklch(0.55 0.22 265);
   --primary-foreground: oklch(1 0 0);
 
   --background: oklch(1 0 0);
-  --foreground: oklch(0.26 0.03 258); /* #334155-ish */
+  /* #334155 slate */
+  --foreground: oklch(0.36 0.03 258);
 
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.26 0.03 258);
+  --card-foreground: oklch(0.36 0.03 258);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.26 0.03 258);
+  --popover-foreground: oklch(0.36 0.03 258);
 
-  --secondary: oklch(0.975 0.005 250); /* #F8FAFC */
-  --secondary-foreground: oklch(0.28 0.13 262);
+  /* #F8FAFC */
+  --secondary: oklch(0.98 0.005 250);
+  --secondary-foreground: oklch(0.32 0.15 260);
   --muted: oklch(0.975 0.005 250);
   --muted-foreground: oklch(0.5 0.02 258);
   --accent: oklch(0.96 0.02 260);
-  --accent-foreground: oklch(0.28 0.13 262);
+  --accent-foreground: oklch(0.32 0.15 260);
 
   --whatsapp: oklch(0.72 0.18 148);
+  /* amber gold accent — usar com moderação */
+  --gold: oklch(0.82 0.16 85);
 
   --destructive: oklch(0.6 0.22 27);
   --destructive-foreground: oklch(1 0 0);
@@ -154,14 +159,4 @@
 @utility gradient-soft {
   background: radial-gradient(1200px 600px at 100% -10%, oklch(0.94 0.05 260 / 0.7), transparent 60%),
               radial-gradient(800px 500px at -10% 20%, oklch(0.94 0.03 250 / 0.6), transparent 60%);
-}
-
-@utility reveal {
-  opacity: 0;
-  transform: translateY(24px);
-  animation: reveal-in 0.7s ease-out forwards;
-}
-
-@keyframes reveal-in {
-  to { opacity: 1; transform: translateY(0); }
 }

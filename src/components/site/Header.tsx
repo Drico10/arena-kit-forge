@@ -1,14 +1,14 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ShieldCheck } from "lucide-react";
 
 const nav = [
+  { href: "#coberturas", label: "Coberturas" },
   { href: "#quem-somos", label: "Quem Somos" },
-  { href: "#servicos", label: "Serviços" },
-  { href: "#diferenciais", label: "Diferenciais" },
   { href: "#como-funciona", label: "Como Funciona" },
+  { href: "#diferenciais", label: "Diferenciais" },
+  { href: "#beneficios", label: "Benefícios" },
   { href: "#faq", label: "FAQ" },
-  { href: "#contato", label: "Contato" },
 ];
 
 export function Header() {
@@ -26,24 +26,24 @@ export function Header() {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-white/85 backdrop-blur-lg border-b border-border shadow-[0_1px_0_0_rgba(15,23,42,0.04)]"
+          ? "bg-white/90 backdrop-blur-lg border-b border-border shadow-[0_1px_0_0_rgba(15,23,42,0.04)]"
           : "bg-transparent"
       }`}
     >
       <div className="container-x flex h-16 items-center justify-between md:h-20">
         <Link to="/" className="flex items-center gap-2.5" onClick={() => setOpen(false)}>
-          <span className="grid h-9 w-9 place-items-center rounded-xl gradient-brand text-white font-display text-lg font-bold shadow-brand">
-            R
+          <span className="grid h-10 w-10 place-items-center rounded-xl gradient-brand text-white shadow-brand">
+            <ShieldCheck className="h-5 w-5" strokeWidth={2.2} />
           </span>
           <span className="flex flex-col leading-none">
             <span className="font-display text-base font-bold text-brand">Rota Brasil</span>
             <span className="text-[10px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
-              Benefícios
+              Proteção Veicular
             </span>
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-8 lg:flex">
+        <nav className="hidden items-center gap-7 lg:flex">
           {nav.map((n) => (
             <a
               key={n.href}
@@ -57,10 +57,10 @@ export function Header() {
 
         <div className="hidden items-center gap-3 lg:flex">
           <a
-            href="#contato"
+            href="#cotacao"
             className="btn-primary rounded-full px-5 py-2.5 text-sm"
           >
-            Solicitar proposta
+            Solicitar Cotação
           </a>
         </div>
 
@@ -87,11 +87,11 @@ export function Header() {
               </a>
             ))}
             <a
-              href="#contato"
+              href="#cotacao"
               onClick={() => setOpen(false)}
               className="btn-primary mt-2 rounded-full px-5 py-3 text-center text-sm"
             >
-              Solicitar proposta
+              Solicitar Cotação
             </a>
           </div>
         </div>

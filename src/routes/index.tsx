@@ -6,44 +6,45 @@ import {
   ShieldCheck,
   Users,
   Zap,
-  Eye,
   MapPin,
   Sparkles,
-  UtensilsCrossed,
-  Coffee,
-  HeartPulse,
-  Smile,
-  ShieldPlus,
-  Layers,
-  Settings2,
-  Briefcase,
+  Car,
+  Truck,
+  Bike,
+  Flame,
+  CloudRain,
+  UserRoundCheck,
+  Wind,
+  Phone,
+  Wrench,
+  KeyRound,
+  ClipboardList,
+  BadgeCheck,
   HandshakeIcon,
-  GraduationCap,
-  Link2,
-  Workflow,
   FileCheck2,
   HeadphonesIcon,
-  Search,
-  Lightbulb,
-  Rocket,
-  LineChart,
-  Building2,
-  Star,
+  Gift,
+  Percent,
+  Smartphone,
+  Store,
   Plus,
   Minus,
   CheckCircle2,
   Send,
+  Star,
 } from "lucide-react";
-import heroImg from "@/assets/rota-hero.png";
+import heroImg from "@/assets/rota-hero-vehicle.jpg";
 import aboutImg from "@/assets/rota-about.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Rota Brasil Benefícios — Benefícios Corporativos para Empresas" },
-      { name: "description", content: "Consultoria especializada em benefícios corporativos: vale alimentação, refeição, plano de saúde, odontológico e mais. Atendimento personalizado em todo o Brasil." },
-      { property: "og:title", content: "Rota Brasil Benefícios — Soluções em Benefícios Corporativos" },
-      { property: "og:description", content: "Ajudamos empresas a oferecer benefícios de qualidade aos colaboradores, com processos simples e custos reduzidos." },
+      { title: "Rota Brasil Proteção Veicular — Proteção completa para o seu veículo" },
+      { name: "description", content: "Associação de proteção veicular com cobertura nacional, assistência 24 horas e atendimento humanizado. Proteja carros, motos, caminhões e frotas com quem entende do assunto." },
+      { property: "og:title", content: "Rota Brasil Proteção Veicular — Dirija com tranquilidade" },
+      { property: "og:description", content: "Proteção veicular completa, cobertura nacional e assistência 24h. Solicite uma cotação gratuita e proteja seu patrimônio." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Landing,
@@ -84,32 +85,40 @@ function Reveal({ children, delay = 0, className = "" }: { children: ReactNode; 
 }
 
 /* ---------- Hero ---------- */
+const heroBadges = [
+  "Atendimento nacional",
+  "Assistência 24 horas",
+  "Cobertura completa",
+  "Atendimento rápido",
+];
+
 function Hero() {
   return (
     <section className="relative overflow-hidden gradient-soft">
-      <div className="container-x grid gap-12 py-16 md:py-24 lg:grid-cols-[1.05fr_1fr] lg:items-center lg:gap-16 lg:py-32">
+      <div className="container-x grid gap-12 py-16 md:py-24 lg:grid-cols-[1.05fr_1fr] lg:items-center lg:gap-16 lg:py-28">
         <div>
           <Reveal>
             <span className="inline-flex items-center gap-2 rounded-full border border-border bg-white/70 px-3.5 py-1.5 text-xs font-medium text-brand backdrop-blur">
               <Sparkles className="h-3.5 w-3.5 text-primary" />
-              Consultoria em benefícios corporativos
+              Associação de proteção veicular
             </span>
           </Reveal>
           <Reveal delay={80}>
-            <h1 className="mt-6 font-display text-4xl font-bold leading-[1.05] text-brand sm:text-5xl lg:text-6xl">
-              Soluções inteligentes em <span className="text-primary">benefícios corporativos</span> para empresas.
+            <h1 className="mt-6 font-display text-4xl font-bold leading-[1.05] text-brand sm:text-5xl lg:text-[3.4rem]">
+              Proteção veicular completa para quem dirige com{" "}
+              <span className="text-primary">tranquilidade.</span>
             </h1>
           </Reveal>
           <Reveal delay={160}>
             <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
-              A Rota Brasil Benefícios ajuda empresas a oferecer benefícios de qualidade aos seus
-              colaboradores, simplificando processos e reduzindo custos com atendimento personalizado.
+              Proteja seu veículo com uma associação que oferece cobertura nacional, assistência
+              24 horas e atendimento humanizado. Carros, motos, caminhões, utilitários e frotas.
             </p>
           </Reveal>
           <Reveal delay={240}>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <a href="#contato" className="btn-primary inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 text-sm">
-                Solicitar uma proposta <ArrowRight className="h-4 w-4" />
+              <a href="#cotacao" className="btn-primary inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 text-sm">
+                Solicitar Cotação <ArrowRight className="h-4 w-4" />
               </a>
               <a
                 href="https://wa.me/5500000000000"
@@ -117,44 +126,52 @@ function Hero() {
                 rel="noopener"
                 className="btn-whatsapp inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 text-sm"
               >
-                <MessageCircle className="h-4 w-4" /> Falar pelo WhatsApp
+                <MessageCircle className="h-4 w-4" /> Falar no WhatsApp
               </a>
             </div>
           </Reveal>
           <Reveal delay={320}>
-            <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4 text-xs text-muted-foreground">
-              <div className="flex items-center gap-2">
-                <CheckCircle2 className="h-4 w-4 text-primary" />
-                Atendimento em todo o Brasil
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle2 className="h-4 w-4 text-primary" />
-                Consultoria especializada
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle2 className="h-4 w-4 text-primary" />
-                Sem burocracia
-              </div>
+            <div className="mt-10 grid grid-cols-2 gap-3 text-xs text-muted-foreground sm:flex sm:flex-wrap sm:items-center sm:gap-x-6 sm:gap-y-3">
+              {heroBadges.map((b) => (
+                <div key={b} className="flex items-center gap-2">
+                  <CheckCircle2 className="h-4 w-4 shrink-0 text-primary" />
+                  <span>{b}</span>
+                </div>
+              ))}
             </div>
           </Reveal>
         </div>
 
         <Reveal delay={200} className="relative">
-          <div className="absolute -inset-8 -z-10 rounded-[40px] bg-gradient-to-br from-primary/10 via-transparent to-brand/10 blur-2xl" />
-          <img
-            src={heroImg}
-            alt="Ilustração de benefícios corporativos e RH"
-            width={1200}
-            height={1000}
-            className="mx-auto w-full max-w-[560px] drop-shadow-[0_30px_60px_rgba(37,99,235,0.15)]"
-          />
+          <div className="absolute -inset-6 -z-10 rounded-[40px] bg-gradient-to-br from-primary/15 via-transparent to-brand/15 blur-2xl" />
+          <div className="relative overflow-hidden rounded-[28px] border border-white/60 shadow-elevated">
+            <img
+              src={heroImg}
+              alt="Motorista tranquilo ao lado do seu veículo"
+              width={1600}
+              height={1200}
+              className="h-full w-full object-cover"
+            />
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-brand/25 via-transparent to-transparent" />
+          </div>
+          <div className="absolute -bottom-6 left-4 hidden rounded-2xl border border-border bg-white p-4 shadow-elevated sm:flex sm:items-center sm:gap-3">
+            <div className="grid h-11 w-11 place-items-center rounded-xl bg-primary/10 text-primary">
+              <ShieldCheck className="h-5 w-5" />
+            </div>
+            <div className="min-w-0">
+              <p className="text-[10px] font-semibold uppercase tracking-widest text-muted-foreground">
+                Proteção ativa
+              </p>
+              <p className="text-sm font-semibold text-brand">Cobertura nacional 24h</p>
+            </div>
+          </div>
         </Reveal>
       </div>
     </section>
   );
 }
 
-/* ---------- Section wrapper ---------- */
+/* ---------- Section head ---------- */
 function SectionHead({ eyebrow, title, description }: { eyebrow: string; title: string; description?: string }) {
   return (
     <Reveal>
@@ -169,14 +186,85 @@ function SectionHead({ eyebrow, title, description }: { eyebrow: string; title: 
   );
 }
 
+/* ---------- Tipos de veículo ---------- */
+const veiculos = [
+  { Icon: Car, label: "Carros" },
+  { Icon: Bike, label: "Motos" },
+  { Icon: Truck, label: "Caminhões" },
+  { Icon: Truck, label: "Utilitários" },
+  { Icon: Car, label: "Frotas" },
+];
+
+function Veiculos() {
+  return (
+    <section className="container-x -mt-10 md:-mt-14">
+      <Reveal>
+        <div className="rounded-3xl border border-border bg-white p-6 shadow-soft md:p-8">
+          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-5">
+            {veiculos.map(({ Icon, label }) => (
+              <div key={label} className="flex flex-col items-center gap-2 rounded-2xl border border-transparent bg-secondary/60 p-4 text-center transition hover:border-primary/30 hover:bg-white">
+                <div className="grid h-11 w-11 place-items-center rounded-xl bg-primary/10 text-primary">
+                  <Icon className="h-5 w-5" strokeWidth={1.6} />
+                </div>
+                <span className="text-sm font-semibold text-brand">{label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </Reveal>
+    </section>
+  );
+}
+
+/* ---------- Coberturas ---------- */
+const coberturas = [
+  { Icon: ShieldCheck, title: "Roubo e Furto", desc: "Indenização por perda em caso de roubo ou furto qualificado do veículo." },
+  { Icon: Car, title: "Colisão", desc: "Reparos por danos causados em acidentes de trânsito, com oficinas parceiras." },
+  { Icon: BadgeCheck, title: "Perda Total", desc: "Indenização integral quando o conserto ultrapassa o valor de mercado." },
+  { Icon: Flame, title: "Incêndio", desc: "Cobertura em casos de incêndio, curto-circuito ou explosão do veículo." },
+  { Icon: CloudRain, title: "Fenômenos Naturais", desc: "Proteção contra enchentes, alagamentos, granizo, vendavais e queda de árvores." },
+  { Icon: UserRoundCheck, title: "Proteção para Terceiros", desc: "Cobertura para danos materiais e corporais causados a terceiros." },
+  { Icon: Wind, title: "Cobertura de Vidros", desc: "Reparo ou troca de para-brisa, vidros laterais, traseiro, faróis e retrovisores." },
+  { Icon: Phone, title: "Assistência 24 Horas", desc: "Central pronta para atender emergências a qualquer hora, em todo o Brasil." },
+  { Icon: Wrench, title: "Reboque", desc: "Guincho em caso de pane ou sinistro, com quilometragem ampla incluída." },
+  { Icon: KeyRound, title: "Carro Reserva", desc: "Veículo substituto enquanto o seu está em reparo, sem interromper sua rotina." },
+];
+
+function Coberturas() {
+  return (
+    <section id="coberturas" className="bg-secondary py-20 md:py-28">
+      <div className="container-x">
+        <SectionHead
+          eyebrow="Coberturas"
+          title="Tudo que o seu veículo precisa em um só lugar."
+          description="Coberturas amplas e transparentes, pensadas para proteger o seu patrimônio no dia a dia e nos imprevistos."
+        />
+        <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+          {coberturas.map(({ Icon, title, desc }, i) => (
+            <Reveal key={title} delay={i * 40}>
+              <div className="group h-full rounded-2xl border border-border bg-white p-6 transition duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-elevated">
+                <div className="grid h-12 w-12 place-items-center rounded-xl bg-primary/10 text-primary transition group-hover:bg-primary group-hover:text-white">
+                  <Icon className="h-6 w-6" strokeWidth={1.6} />
+                </div>
+                <h3 className="mt-5 text-base font-semibold text-brand">{title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{desc}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* ---------- Quem Somos ---------- */
 const quemSomosItems = [
-  { Icon: HeadphonesIcon, title: "Atendimento personalizado", desc: "Cada empresa tem um consultor dedicado, do primeiro contato ao pós-venda." },
-  { Icon: GraduationCap, title: "Consultoria especializada", desc: "Equipe com anos de experiência em benefícios e RH corporativo." },
-  { Icon: Zap, title: "Agilidade", desc: "Processos simplificados para você implantar benefícios em poucos dias." },
-  { Icon: Eye, title: "Transparência", desc: "Propostas claras, sem letras miúdas e sem custos escondidos." },
-  { Icon: MapPin, title: "Atendimento nacional", desc: "Suporte para empresas em todas as regiões do país." },
-  { Icon: Settings2, title: "Soluções sob medida", desc: "Planos desenhados de acordo com o perfil e o orçamento da sua empresa." },
+  { Icon: HeadphonesIcon, title: "Atendimento humanizado", desc: "Pessoas reais, escuta ativa e respostas rápidas em cada etapa." },
+  { Icon: ShieldCheck, title: "Especialistas em proteção veicular", desc: "Associação focada em proteger veículos com seriedade e experiência." },
+  { Icon: FileCheck2, title: "Transparência", desc: "Regras claras, sem letras miúdas e sem custos escondidos." },
+  { Icon: Zap, title: "Agilidade", desc: "Processos digitais e simplificados para você associar em poucos passos." },
+  { Icon: MapPin, title: "Atendimento nacional", desc: "Rede de parceiros e assistência em todos os estados do Brasil." },
+  { Icon: HandshakeIcon, title: "Compromisso com o associado", desc: "Relacionamento de longo prazo e suporte contínuo quando você precisar." },
 ];
 
 function QuemSomos() {
@@ -188,7 +276,7 @@ function QuemSomos() {
             <div className="absolute -inset-6 -z-10 rounded-3xl bg-primary/10 blur-2xl" />
             <img
               src={aboutImg}
-              alt="Equipe corporativa Rota Brasil Benefícios"
+              alt="Equipe corporativa Rota Brasil Proteção Veicular"
               width={1400}
               height={1000}
               loading="lazy"
@@ -197,11 +285,11 @@ function QuemSomos() {
             <div className="absolute -bottom-6 -right-4 hidden rounded-2xl border border-border bg-white p-4 shadow-elevated sm:block">
               <div className="flex items-center gap-3">
                 <div className="grid h-10 w-10 place-items-center rounded-full bg-primary/10 text-primary">
-                  <Building2 className="h-5 w-5" />
+                  <ShieldCheck className="h-5 w-5" />
                 </div>
                 <div>
-                  <p className="text-xs uppercase tracking-wider text-muted-foreground">Empresas atendidas</p>
-                  <p className="font-display text-xl font-bold text-brand">+500</p>
+                  <p className="text-xs uppercase tracking-wider text-muted-foreground">Associados protegidos</p>
+                  <p className="font-display text-xl font-bold text-brand">+10.000*</p>
                 </div>
               </div>
             </div>
@@ -214,12 +302,12 @@ function QuemSomos() {
               Quem Somos
             </span>
             <h2 className="mt-4 font-display text-3xl font-bold text-brand md:text-4xl lg:text-5xl">
-              Uma parceira estratégica em benefícios corporativos.
+              Uma associação feita por quem entende de estrada.
             </h2>
             <p className="mt-5 text-base leading-relaxed text-muted-foreground">
-              Somos uma consultoria especializada em benefícios para empresas de todos os portes.
-              Trabalhamos lado a lado com o RH para desenhar soluções que valorizam colaboradores,
-              simplificam a gestão e trazem economia real para o negócio.
+              A Rota Brasil é uma associação especializada em proteção veicular. Trabalhamos com
+              transparência, agilidade e atendimento humanizado para que cada associado dirija com
+              a certeza de estar amparado — em qualquer lugar do país, a qualquer hora do dia.
             </p>
           </Reveal>
 
@@ -244,86 +332,12 @@ function QuemSomos() {
   );
 }
 
-/* ---------- Serviços ---------- */
-const servicos = [
-  { Icon: UtensilsCrossed, title: "Vale Alimentação", desc: "Cartões aceitos em supermercados de todo o Brasil, com as melhores taxas do mercado." },
-  { Icon: Coffee, title: "Vale Refeição", desc: "Ampla rede credenciada em restaurantes e lanchonetes, sem burocracia." },
-  { Icon: HeartPulse, title: "Plano de Saúde", desc: "Planos empresariais das principais operadoras, com cobertura nacional." },
-  { Icon: Smile, title: "Plano Odontológico", desc: "Cuidado com o sorriso do time em rede credenciada ampla e qualificada." },
-  { Icon: ShieldPlus, title: "Seguro de Vida", desc: "Proteção financeira para o colaborador e sua família, com contratação simples." },
-  { Icon: Layers, title: "Benefícios Flexíveis", desc: "Combine categorias em um único cartão e dê liberdade de escolha ao colaborador." },
-  { Icon: Settings2, title: "Gestão de Benefícios", desc: "Plataforma para administrar tudo em um só lugar, com relatórios completos." },
-  { Icon: Briefcase, title: "Consultoria Empresarial", desc: "Análise, negociação e implantação de benefícios sob medida para sua empresa." },
-];
-
-function Servicos() {
-  return (
-    <section id="servicos" className="bg-secondary py-20 md:py-28">
-      <div className="container-x">
-        <SectionHead
-          eyebrow="Nossos serviços"
-          title="Soluções completas em benefícios corporativos."
-          description="Um portfólio pensado para atender pequenas, médias e grandes empresas com flexibilidade e eficiência."
-        />
-        <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {servicos.map(({ Icon, title, desc }, i) => (
-            <Reveal key={title} delay={i * 50}>
-              <div className="group h-full rounded-2xl border border-border bg-white p-6 transition duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-elevated">
-                <div className="grid h-12 w-12 place-items-center rounded-xl bg-primary/10 text-primary transition group-hover:bg-primary group-hover:text-white">
-                  <Icon className="h-6 w-6" strokeWidth={1.6} />
-                </div>
-                <h3 className="mt-5 text-base font-semibold text-brand">{title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{desc}</p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ---------- Diferenciais ---------- */
-const diferenciais = [
-  { Icon: Users, title: "Atendimento humanizado", desc: "Pessoas reais, respostas rápidas e escuta ativa em cada etapa da parceria." },
-  { Icon: GraduationCap, title: "Equipe especializada", desc: "Profissionais com sólida experiência em benefícios, RH e legislação trabalhista." },
-  { Icon: Link2, title: "Parcerias estratégicas", desc: "Relacionamento direto com as maiores operadoras e fornecedores do país." },
-  { Icon: Workflow, title: "Processos simplificados", desc: "Fluxos claros e digitais para você contratar e gerenciar sem dor de cabeça." },
-  { Icon: FileCheck2, title: "Redução de burocracia", desc: "Cuidamos da papelada, das negociações e da adequação legal por você." },
-  { Icon: ShieldCheck, title: "Suporte contínuo", desc: "Acompanhamento constante para garantir que tudo funcione como o combinado." },
-];
-
-function Diferenciais() {
-  return (
-    <section id="diferenciais" className="container-x py-20 md:py-28">
-      <SectionHead
-        eyebrow="Diferenciais"
-        title="Por que empresas escolhem a Rota Brasil."
-        description="A combinação entre consultoria estratégica e execução impecável faz a diferença no dia a dia do RH."
-      />
-      <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-        {diferenciais.map(({ Icon, title, desc }, i) => (
-          <Reveal key={title} delay={i * 60}>
-            <div className="flex h-full flex-col rounded-2xl border border-border bg-white p-6 transition hover:border-primary/40 hover:shadow-soft">
-              <div className="grid h-11 w-11 place-items-center rounded-xl bg-primary/10 text-primary">
-                <Icon className="h-5 w-5" strokeWidth={1.6} />
-              </div>
-              <h3 className="mt-5 text-lg font-semibold text-brand">{title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{desc}</p>
-            </div>
-          </Reveal>
-        ))}
-      </div>
-    </section>
-  );
-}
-
 /* ---------- Como Funciona ---------- */
 const passos = [
-  { Icon: Search, title: "Entendemos as necessidades da empresa", desc: "Escutamos o RH, mapeamos o perfil dos colaboradores e identificamos oportunidades." },
-  { Icon: Lightbulb, title: "Apresentamos a melhor solução", desc: "Elaboramos uma proposta personalizada, com cenários, custos e comparativos." },
-  { Icon: Rocket, title: "Implantamos os benefícios", desc: "Cuidamos da contratação, integração e comunicação com os colaboradores." },
-  { Icon: LineChart, title: "Fazemos acompanhamento contínuo", desc: "Monitoramos resultados, indicadores e satisfação, ajustando sempre que preciso." },
+  { Icon: ClipboardList, title: "Solicite sua cotação", desc: "Preencha os dados do veículo em poucos minutos e receba uma proposta personalizada." },
+  { Icon: FileCheck2, title: "Escolha o plano ideal", desc: "Compare coberturas, benefícios e valores com o suporte de um consultor especializado." },
+  { Icon: ShieldCheck, title: "Associe seu veículo", desc: "Assinatura 100% digital, sem burocracia, com ativação da proteção em poucos dias." },
+  { Icon: Car, title: "Dirija com tranquilidade", desc: "Conte com assistência 24h, cobertura nacional e um time pronto para te apoiar." },
 ];
 
 function ComoFunciona() {
@@ -332,7 +346,7 @@ function ComoFunciona() {
       <div className="container-x">
         <SectionHead
           eyebrow="Como funciona"
-          title="Um processo simples, do diagnóstico à operação."
+          title="Do primeiro contato à proteção ativa em poucos passos."
         />
         <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {passos.map(({ Icon, title, desc }, i) => (
@@ -360,12 +374,83 @@ function ComoFunciona() {
   );
 }
 
+/* ---------- Diferenciais ---------- */
+const diferenciais = [
+  { Icon: MapPin, title: "Atendimento nacional", desc: "Suporte e rede de parceiros em todos os estados do Brasil." },
+  { Icon: Users, title: "Equipe especializada", desc: "Consultores com anos de experiência em proteção veicular." },
+  { Icon: Phone, title: "Assistência 24 horas", desc: "Central de atendimento disponível a qualquer hora, todos os dias." },
+  { Icon: ShieldCheck, title: "Cobertura ampla", desc: "Proteção para diferentes perfis de veículos e diferentes tipos de sinistro." },
+  { Icon: Zap, title: "Atendimento rápido", desc: "Respostas ágeis, tanto na cotação quanto no acionamento de assistência." },
+  { Icon: FileCheck2, title: "Processo simplificado", desc: "Contratação digital, sem burocracia e com contratos claros." },
+];
+
+function Diferenciais() {
+  return (
+    <section id="diferenciais" className="container-x py-20 md:py-28">
+      <SectionHead
+        eyebrow="Diferenciais"
+        title="Por que motoristas escolhem a Rota Brasil."
+        description="Uma proteção pensada para o dia a dia real de quem depende do veículo e não pode ficar na mão."
+      />
+      <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        {diferenciais.map(({ Icon, title, desc }, i) => (
+          <Reveal key={title} delay={i * 60}>
+            <div className="flex h-full flex-col rounded-2xl border border-border bg-white p-6 transition hover:border-primary/40 hover:shadow-soft">
+              <div className="grid h-11 w-11 place-items-center rounded-xl bg-primary/10 text-primary">
+                <Icon className="h-5 w-5" strokeWidth={1.6} />
+              </div>
+              <h3 className="mt-5 text-lg font-semibold text-brand">{title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{desc}</p>
+            </div>
+          </Reveal>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+/* ---------- Clube de Benefícios ---------- */
+const beneficios = [
+  { Icon: Percent, title: "Cashback", desc: "Receba parte do que você gasta com parceiros direto na sua conta." },
+  { Icon: Store, title: "Clube de descontos", desc: "Descontos exclusivos em postos, oficinas, lojas e serviços automotivos." },
+  { Icon: Smartphone, title: "Aplicativo exclusivo", desc: "Gerencie a proteção, acione assistência e acompanhe benefícios pelo app." },
+  { Icon: HandshakeIcon, title: "Parceiros conveniados", desc: "Rede em expansão com marcas selecionadas em todo o Brasil." },
+];
+
+function Beneficios() {
+  return (
+    <section id="beneficios" className="bg-secondary py-20 md:py-28">
+      <div className="container-x">
+        <SectionHead
+          eyebrow="Clube de Benefícios"
+          title="Muito além da proteção do seu veículo."
+          description="Ser associado da Rota Brasil também é ter acesso a uma rede de vantagens pensadas para quem vive na estrada."
+        />
+        <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+          {beneficios.map(({ Icon, title, desc }, i) => (
+            <Reveal key={title} delay={i * 70}>
+              <div className="group relative h-full overflow-hidden rounded-2xl border border-border bg-white p-6 transition hover:-translate-y-1 hover:border-primary/40 hover:shadow-elevated">
+                <div className="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-gold/25 blur-2xl transition group-hover:bg-gold/40" />
+                <div className="relative grid h-12 w-12 place-items-center rounded-xl bg-primary/10 text-primary">
+                  <Icon className="h-6 w-6" strokeWidth={1.6} />
+                </div>
+                <h3 className="relative mt-5 text-base font-semibold text-brand">{title}</h3>
+                <p className="relative mt-2 text-sm leading-relaxed text-muted-foreground">{desc}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* ---------- Indicadores ---------- */
 const indicadores = [
-  { value: "+500", label: "Empresas atendidas" },
-  { value: "+20.000", label: "Colaboradores beneficiados" },
-  { value: "98%", label: "Satisfação dos clientes" },
-  { value: "Brasil", label: "Atendimento em todo o país" },
+  { value: "+10.000*", label: "Associados protegidos" },
+  { value: "+95%*", label: "Satisfação dos associados" },
+  { value: "Nacional", label: "Cobertura em todo o Brasil" },
+  { value: "24h", label: "Assistência todos os dias" },
 ];
 
 function Indicadores() {
@@ -389,8 +474,8 @@ function Indicadores() {
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {indicadores.map((n, i) => (
               <Reveal key={n.label} delay={i * 80}>
-                <div className="rounded-2xl border border-white/15 bg-white/5 p-6 backdrop-blur-sm">
-                  <p className="font-display text-4xl font-bold text-white md:text-5xl">{n.value}</p>
+                <div className="rounded-2xl bg-white/10 p-6 backdrop-blur-sm">
+                  <p className="font-display text-3xl font-bold text-white md:text-4xl">{n.value}</p>
                   <p className="mt-2 text-sm text-white/80">{n.label}</p>
                 </div>
               </Reveal>
@@ -405,57 +490,60 @@ function Indicadores() {
 /* ---------- Depoimentos ---------- */
 const depoimentos = [
   {
-    name: "Mariana Ribeiro",
-    role: "Gerente de RH — Indústria (exemplo)",
-    initials: "MR",
-    text: "A consultoria da Rota Brasil transformou nossa gestão de benefícios. Reduzimos custos e aumentamos a satisfação da equipe em poucos meses.",
+    name: "Rafael Monteiro",
+    role: "Associado — São Paulo/SP",
+    text: "Bati em um poste na chuva e a assistência chegou em menos de 40 minutos. O carro reserva salvou minha semana. Recomendo demais.",
+    avatar: "https://i.pravatar.cc/120?img=12",
   },
   {
-    name: "Carlos Andrade",
-    role: "Diretor Financeiro — Varejo (exemplo)",
-    initials: "CA",
-    text: "Atendimento consultivo de verdade. Analisaram nosso cenário, negociaram com as operadoras e entregaram uma proposta enxuta e clara.",
+    name: "Camila Duarte",
+    role: "Associada — Curitiba/PR",
+    text: "Sempre tive receio de proteção veicular, mas o atendimento foi transparente do começo ao fim. Hoje protejo meu carro e a moto do meu marido.",
+    avatar: "https://i.pravatar.cc/120?img=32",
   },
   {
-    name: "Fernanda Lopes",
-    role: "Coordenadora de Pessoas — Serviços (exemplo)",
-    initials: "FL",
-    text: "Processo simples, comunicação transparente e suporte sempre presente. Nossos colaboradores sentiram a diferença imediatamente.",
+    name: "Eduardo Nogueira",
+    role: "Frotista — Goiânia/GO",
+    text: "Passei toda a frota da transportadora para a Rota Brasil. Reduzi custos e ganhei previsibilidade. Suporte rápido, sem enrolação.",
+    avatar: "https://i.pravatar.cc/120?img=68",
   },
 ];
 
 function Depoimentos() {
   return (
-    <section className="bg-secondary py-20 md:py-28">
-      <div className="container-x">
-        <SectionHead
-          eyebrow="Depoimentos"
-          title="O que dizem sobre a nossa parceria."
-          description="Depoimentos ilustrativos para fins demonstrativos."
-        />
-        <div className="mt-14 grid gap-6 md:grid-cols-3">
-          {depoimentos.map((d, i) => (
-            <Reveal key={d.name} delay={i * 90}>
-              <div className="flex h-full flex-col rounded-2xl border border-border bg-white p-6 shadow-soft">
-                <div className="flex gap-0.5 text-primary">
-                  {Array.from({ length: 5 }).map((_, k) => (
-                    <Star key={k} className="h-4 w-4 fill-current" />
-                  ))}
-                </div>
-                <p className="mt-4 text-sm leading-relaxed text-foreground/90">"{d.text}"</p>
-                <div className="mt-6 flex items-center gap-3 border-t border-border pt-4">
-                  <div className="grid h-11 w-11 place-items-center rounded-full gradient-brand text-sm font-semibold text-white">
-                    {d.initials}
-                  </div>
-                  <div className="min-w-0">
-                    <p className="text-sm font-semibold text-brand">{d.name}</p>
-                    <p className="text-xs text-muted-foreground">{d.role}</p>
-                  </div>
+    <section className="container-x py-20 md:py-28">
+      <SectionHead
+        eyebrow="Depoimentos"
+        title="A confiança de quem já dirige protegido."
+        description="Depoimentos fictícios, apresentados a título de exemplo para este projeto conceitual."
+      />
+      <div className="mt-14 grid gap-6 md:grid-cols-3">
+        {depoimentos.map((d, i) => (
+          <Reveal key={d.name} delay={i * 90}>
+            <div className="flex h-full flex-col rounded-2xl border border-border bg-white p-7 shadow-soft">
+              <div className="flex items-center gap-1 text-gold">
+                {Array.from({ length: 5 }).map((_, j) => (
+                  <Star key={j} className="h-4 w-4 fill-current" strokeWidth={0} />
+                ))}
+              </div>
+              <p className="mt-4 text-sm leading-relaxed text-foreground/90">“{d.text}”</p>
+              <div className="mt-6 flex items-center gap-3 border-t border-border pt-5">
+                <img
+                  src={d.avatar}
+                  alt={d.name}
+                  width={44}
+                  height={44}
+                  loading="lazy"
+                  className="h-11 w-11 rounded-full object-cover"
+                />
+                <div>
+                  <p className="text-sm font-semibold text-brand">{d.name}</p>
+                  <p className="text-xs text-muted-foreground">{d.role}</p>
                 </div>
               </div>
-            </Reveal>
-          ))}
-        </div>
+            </div>
+          </Reveal>
+        ))}
       </div>
     </section>
   );
@@ -464,204 +552,246 @@ function Depoimentos() {
 /* ---------- FAQ ---------- */
 const faqs = [
   {
-    q: "Como funciona a contratação?",
-    a: "Depois de um diagnóstico inicial com nossa consultoria, apresentamos uma proposta personalizada. Se aprovada, cuidamos de toda a documentação, contratação e implantação dos benefícios com agilidade.",
+    q: "Como funciona a associação de proteção veicular?",
+    a: "Você se torna associado da Rota Brasil e passa a contar com um rateio mensal entre os membros, além de coberturas contratadas e assistência 24h. Não é seguro tradicional — é um modelo colaborativo, transparente e regulamentado.",
   },
   {
-    q: "Quais benefícios vocês oferecem?",
-    a: "Trabalhamos com vale alimentação, vale refeição, plano de saúde, odontológico, seguro de vida, benefícios flexíveis, além de gestão e consultoria empresarial em benefícios.",
+    q: "O que está incluso na proteção?",
+    a: "Coberturas para roubo, furto, colisão, incêndio, perda total, fenômenos naturais, cobertura de vidros, proteção a terceiros, além de assistência 24h com reboque e opção de carro reserva.",
   },
   {
-    q: "Atendem pequenas empresas?",
-    a: "Sim. Estruturamos soluções para empresas de todos os portes, com condições adequadas ao número de colaboradores e ao orçamento disponível.",
+    q: "Como faço uma cotação?",
+    a: "Basta preencher o formulário de cotação neste site ou falar com nossa equipe pelo WhatsApp. Em poucos minutos você recebe uma proposta personalizada, sem compromisso.",
   },
   {
-    q: "Existe suporte após a contratação?",
-    a: "Sim. Você tem um consultor dedicado e suporte contínuo para tirar dúvidas, ajustar planos, resolver ocorrências e acompanhar indicadores de satisfação.",
+    q: "Quanto tempo leva a aprovação?",
+    a: "Após o envio dos documentos e da vistoria, a associação costuma ser aprovada em poucos dias úteis. Nosso time acompanha cada etapa para agilizar o processo.",
+  },
+  {
+    q: "Vocês atendem em todo o Brasil?",
+    a: "Sim. A Rota Brasil oferece cobertura nacional e conta com rede de parceiros e assistência 24 horas em todos os estados.",
   },
 ];
 
-function FAQ() {
-  const [open, setOpen] = useState<number | null>(0);
+function FaqItem({ q, a, defaultOpen = false }: { q: string; a: string; defaultOpen?: boolean }) {
+  const [open, setOpen] = useState(defaultOpen);
   return (
-    <section id="faq" className="container-x py-20 md:py-28">
-      <SectionHead
-        eyebrow="Perguntas frequentes"
-        title="Tudo o que você precisa saber para começar."
-      />
-      <div className="mx-auto mt-12 max-w-3xl">
-        {faqs.map((f, i) => {
-          const isOpen = open === i;
-          return (
+    <div className="overflow-hidden rounded-2xl border border-border bg-white transition hover:border-primary/30">
+      <button
+        onClick={() => setOpen((v) => !v)}
+        className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left"
+        aria-expanded={open}
+      >
+        <span className="text-sm font-semibold text-brand md:text-base">{q}</span>
+        <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-primary/10 text-primary transition">
+          {open ? <Minus className="h-4 w-4" /> : <Plus className="h-4 w-4" />}
+        </span>
+      </button>
+      <div
+        className="grid transition-all duration-300"
+        style={{ gridTemplateRows: open ? "1fr" : "0fr" }}
+      >
+        <div className="overflow-hidden">
+          <p className="px-6 pb-6 text-sm leading-relaxed text-muted-foreground">{a}</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function Faq() {
+  return (
+    <section id="faq" className="bg-secondary py-20 md:py-28">
+      <div className="container-x max-w-3xl">
+        <SectionHead eyebrow="FAQ" title="Perguntas frequentes." />
+        <div className="mt-12 space-y-3">
+          {faqs.map((f, i) => (
             <Reveal key={f.q} delay={i * 50}>
-              <div className="mb-3 overflow-hidden rounded-2xl border border-border bg-white transition hover:border-primary/40">
-                <button
-                  onClick={() => setOpen(isOpen ? null : i)}
-                  className="flex w-full items-center justify-between gap-4 px-5 py-5 text-left"
-                  aria-expanded={isOpen}
-                >
-                  <span className="text-sm font-semibold text-brand md:text-base">{f.q}</span>
-                  <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-primary/10 text-primary">
-                    {isOpen ? <Minus className="h-4 w-4" /> : <Plus className="h-4 w-4" />}
-                  </span>
-                </button>
-                <div
-                  style={{
-                    display: "grid",
-                    gridTemplateRows: isOpen ? "1fr" : "0fr",
-                    transition: "grid-template-rows .3s ease",
-                  }}
-                >
-                  <div className="overflow-hidden">
-                    <p className="px-5 pb-5 text-sm leading-relaxed text-muted-foreground">{f.a}</p>
-                  </div>
-                </div>
-              </div>
+              <FaqItem q={f.q} a={f.a} defaultOpen={i === 0} />
             </Reveal>
-          );
-        })}
+          ))}
+        </div>
       </div>
     </section>
   );
 }
 
 /* ---------- CTA + Formulário ---------- */
-function CTA() {
-  const [sent, setSent] = useState(false);
+function Cotacao() {
+  const [enviado, setEnviado] = useState(false);
+  const [form, setForm] = useState({ nome: "", telefone: "", email: "", veiculo: "", cidade: "", mensagem: "" });
+
+  function onChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) {
+    setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
+  }
+
+  function onSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    setEnviado(true);
+    setTimeout(() => setEnviado(false), 6000);
+    setForm({ nome: "", telefone: "", email: "", veiculo: "", cidade: "", mensagem: "" });
+  }
+
   return (
-    <section className="container-x py-20 md:py-28">
-      <div className="grid gap-10 rounded-3xl border border-border bg-white p-8 shadow-elevated md:p-14 lg:grid-cols-[1.05fr_1fr] lg:gap-14">
-        <Reveal>
-          <span className="inline-flex rounded-full bg-primary/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-primary">
-            Vamos conversar
-          </span>
-          <h2 className="mt-4 font-display text-3xl font-bold text-brand md:text-4xl lg:text-5xl">
-            Leve mais qualidade de vida para seus colaboradores.
-          </h2>
-          <p className="mt-5 max-w-lg text-base text-muted-foreground">
-            Fale com nossa consultoria e receba uma proposta sob medida em até 1 dia útil.
-            Sem compromisso e com total transparência.
-          </p>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <a href="#form-contato" className="btn-primary inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 text-sm">
-              Solicitar orçamento <ArrowRight className="h-4 w-4" />
-            </a>
-            <a
-              href="https://wa.me/5500000000000"
-              target="_blank"
-              rel="noopener"
-              className="btn-whatsapp inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 text-sm"
+    <section id="cotacao" className="container-x py-20 md:py-28">
+      <div className="overflow-hidden rounded-3xl border border-border bg-white shadow-elevated">
+        <div className="grid gap-0 lg:grid-cols-[1.1fr_1fr]">
+          <div className="relative gradient-brand p-10 text-white md:p-14">
+            <div className="absolute -right-16 -top-16 h-56 w-56 rounded-full bg-white/10 blur-3xl" />
+            <span className="inline-flex rounded-full bg-white/15 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em]">
+              Solicitar cotação
+            </span>
+            <h2 className="mt-4 font-display text-3xl font-bold leading-tight text-white md:text-4xl">
+              Seu veículo merece mais segurança.
+            </h2>
+            <p className="mt-4 max-w-md text-sm leading-relaxed text-white/85 md:text-base">
+              Solicite uma cotação gratuita e descubra como é simples proteger seu patrimônio com
+              uma associação especializada, cobertura nacional e assistência 24 horas.
+            </p>
+
+            <ul className="mt-8 space-y-3 text-sm">
+              {[
+                "Sem compromisso — cotação gratuita",
+                "Consultor especializado dedicado",
+                "Resposta em até 1 dia útil",
+              ].map((t) => (
+                <li key={t} className="flex items-center gap-2 text-white/90">
+                  <CheckCircle2 className="h-4 w-4 shrink-0 text-white" /> {t}
+                </li>
+              ))}
+            </ul>
+
+            <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+              <a
+                href="https://wa.me/5500000000000"
+                target="_blank"
+                rel="noopener"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-brand transition hover:-translate-y-0.5 hover:bg-white/90"
+              >
+                <MessageCircle className="h-4 w-4" /> Falar no WhatsApp
+              </a>
+              <a
+                href="tel:+5500000000000"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/40 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
+              >
+                <Phone className="h-4 w-4" /> (00) 0000-0000
+              </a>
+            </div>
+          </div>
+
+          <form onSubmit={onSubmit} className="p-8 md:p-12">
+            <h3 className="font-display text-xl font-bold text-brand md:text-2xl">
+              Preencha seus dados
+            </h3>
+            <p className="mt-1 text-sm text-muted-foreground">
+              Retornamos rapidamente com a melhor proposta para o seu veículo.
+            </p>
+
+            <div className="mt-6 grid gap-4 sm:grid-cols-2">
+              <Field label="Nome completo" name="nome" value={form.nome} onChange={onChange} required />
+              <Field label="Telefone / WhatsApp" name="telefone" value={form.telefone} onChange={onChange} required />
+              <Field label="E-mail" name="email" type="email" value={form.email} onChange={onChange} required className="sm:col-span-2" />
+              <SelectField
+                label="Tipo de veículo"
+                name="veiculo"
+                value={form.veiculo}
+                onChange={onChange}
+                required
+                options={["Carro", "Moto", "Caminhão", "Utilitário", "Frota"]}
+              />
+              <Field label="Cidade / UF" name="cidade" value={form.cidade} onChange={onChange} required />
+              <div className="sm:col-span-2">
+                <label className="text-xs font-semibold uppercase tracking-wider text-brand">
+                  Mensagem (opcional)
+                </label>
+                <textarea
+                  name="mensagem"
+                  rows={3}
+                  value={form.mensagem}
+                  onChange={onChange}
+                  className="mt-2 w-full rounded-xl border border-border bg-white px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
+                  placeholder="Conte um pouco sobre o veículo e o que você procura."
+                />
+              </div>
+            </div>
+
+            <button
+              type="submit"
+              className="btn-primary mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full px-6 py-3.5 text-sm"
             >
-              <MessageCircle className="h-4 w-4" /> Falar pelo WhatsApp
-            </a>
-          </div>
+              <Send className="h-4 w-4" /> Solicitar Cotação
+            </button>
 
-          <div className="mt-10 grid gap-4 sm:grid-cols-2">
-            {[
-              { Icon: HandshakeIcon, title: "Sem compromisso", desc: "Analise a proposta com calma." },
-              { Icon: ShieldCheck, title: "Confidencialidade", desc: "Seus dados ficam protegidos." },
-            ].map(({ Icon, title, desc }) => (
-              <div key={title} className="flex gap-3 rounded-2xl border border-border bg-secondary/60 p-4">
-                <div className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-primary/10 text-primary">
-                  <Icon className="h-5 w-5" strokeWidth={1.6} />
-                </div>
-                <div className="min-w-0">
-                  <p className="text-sm font-semibold text-brand">{title}</p>
-                  <p className="mt-0.5 text-xs text-muted-foreground">{desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </Reveal>
-
-        <Reveal delay={120}>
-          <form
-            id="form-contato"
-            onSubmit={(e) => {
-              e.preventDefault();
-              setSent(true);
-            }}
-            className="rounded-2xl border border-border bg-secondary/60 p-6 md:p-8"
-          >
-            {sent ? (
-              <div className="flex flex-col items-center justify-center py-10 text-center">
-                <div className="grid h-14 w-14 place-items-center rounded-full bg-primary/10 text-primary">
-                  <CheckCircle2 className="h-7 w-7" />
-                </div>
-                <h3 className="mt-4 font-display text-xl font-bold text-brand">Solicitação enviada!</h3>
-                <p className="mt-2 max-w-sm text-sm text-muted-foreground">
-                  Nossa consultoria entrará em contato em até 1 dia útil.
-                </p>
-              </div>
-            ) : (
-              <>
-                <h3 className="font-display text-xl font-bold text-brand">Solicite uma proposta</h3>
-                <p className="mt-1 text-sm text-muted-foreground">Preencha os campos e nossa equipe retorna rapidamente.</p>
-                <div className="mt-6 grid gap-4">
-                  <Field label="Nome" placeholder="Seu nome" required />
-                  <Field label="Empresa" placeholder="Nome da empresa" required />
-                  <div className="grid gap-4 sm:grid-cols-2">
-                    <Field label="E-mail corporativo" type="email" placeholder="voce@empresa.com" required />
-                    <Field label="Telefone / WhatsApp" placeholder="(00) 00000-0000" required />
-                  </div>
-                  <Field label="Nº de colaboradores" placeholder="Ex.: 50" />
-                  <div>
-                    <label className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-brand">
-                      Mensagem
-                    </label>
-                    <textarea
-                      rows={4}
-                      placeholder="Conte um pouco sobre o que a sua empresa precisa"
-                      className="w-full rounded-xl border border-border bg-white px-4 py-3 text-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20"
-                    />
-                  </div>
-                  <button type="submit" className="btn-primary inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 text-sm">
-                    Enviar solicitação <Send className="h-4 w-4" />
-                  </button>
-                  <p className="text-center text-[11px] text-muted-foreground">
-                    Ao enviar, você concorda em ser contatado pela Rota Brasil Benefícios.
-                  </p>
-                </div>
-              </>
+            {enviado && (
+              <p className="mt-4 rounded-xl bg-primary/10 px-4 py-3 text-sm text-primary">
+                Recebemos seus dados. Em breve um consultor entrará em contato.
+              </p>
             )}
+
+            <p className="mt-4 text-[11px] leading-relaxed text-muted-foreground">
+              Ao enviar, você concorda em ser contatado pela Rota Brasil. Seus dados são tratados com
+              segurança e usados apenas para responder à sua solicitação.
+            </p>
           </form>
-        </Reveal>
+        </div>
       </div>
     </section>
   );
 }
 
+/* ---------- Form fields ---------- */
 function Field({
-  label, type = "text", placeholder, required,
-}: { label: string; type?: string; placeholder?: string; required?: boolean }) {
+  label,
+  className = "",
+  ...props
+}: React.InputHTMLAttributes<HTMLInputElement> & { label: string }) {
   return (
-    <div>
-      <label className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-brand">
-        {label}
-      </label>
+    <div className={className}>
+      <label className="text-xs font-semibold uppercase tracking-wider text-brand">{label}</label>
       <input
-        type={type}
-        required={required}
-        placeholder={placeholder}
-        className="w-full rounded-xl border border-border bg-white px-4 py-3 text-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20"
+        {...props}
+        className="mt-2 w-full rounded-xl border border-border bg-white px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
       />
     </div>
   );
 }
 
-/* ---------- Page ---------- */
+function SelectField({
+  label,
+  options,
+  ...props
+}: React.SelectHTMLAttributes<HTMLSelectElement> & { label: string; options: string[] }) {
+  return (
+    <div>
+      <label className="text-xs font-semibold uppercase tracking-wider text-brand">{label}</label>
+      <select
+        {...props}
+        className="mt-2 w-full rounded-xl border border-border bg-white px-4 py-3 text-sm text-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
+      >
+        <option value="">Selecione…</option>
+        {options.map((o) => (
+          <option key={o} value={o}>{o}</option>
+        ))}
+      </select>
+    </div>
+  );
+}
+
+/* ---------- Landing ---------- */
 function Landing() {
   return (
     <>
       <Hero />
+      <Veiculos />
+      <Coberturas />
       <QuemSomos />
-      <Servicos />
-      <Diferenciais />
       <ComoFunciona />
+      <Diferenciais />
+      <Beneficios />
       <Indicadores />
       <Depoimentos />
-      <FAQ />
-      <CTA />
+      <Faq />
+      <Cotacao />
     </>
   );
 }
