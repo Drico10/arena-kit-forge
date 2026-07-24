@@ -1,20 +1,21 @@
-import { Phone, Mail, MapPin, Instagram, Linkedin, Facebook, MessageCircle } from "lucide-react";
+import { Phone, Mail, MapPin, Instagram, Linkedin, Facebook, MessageCircle, ShieldCheck } from "lucide-react";
 
-const services = [
-  "Vale Alimentação",
-  "Vale Refeição",
-  "Plano de Saúde",
-  "Plano Odontológico",
-  "Seguro de Vida",
-  "Benefícios Flexíveis",
+const coberturas = [
+  "Roubo e Furto",
+  "Colisão",
+  "Perda Total",
+  "Incêndio",
+  "Fenômenos Naturais",
+  "Assistência 24h",
 ];
 
 const institucional = [
   { href: "#quem-somos", label: "Quem Somos" },
-  { href: "#diferenciais", label: "Diferenciais" },
+  { href: "#coberturas", label: "Coberturas" },
+  { href: "#beneficios", label: "Clube de Benefícios" },
   { href: "#como-funciona", label: "Como Funciona" },
-  { href: "#faq", label: "FAQ" },
-  { href: "#contato", label: "Contato" },
+  { href: "#faq", label: "Perguntas Frequentes" },
+  { href: "#cotacao", label: "Solicitar Cotação" },
 ];
 
 export function Footer() {
@@ -24,19 +25,19 @@ export function Footer() {
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
           <div>
             <div className="flex items-center gap-2.5">
-              <span className="grid h-9 w-9 place-items-center rounded-xl gradient-brand text-white font-display text-lg font-bold">
-                R
+              <span className="grid h-10 w-10 place-items-center rounded-xl gradient-brand text-white">
+                <ShieldCheck className="h-5 w-5" strokeWidth={2.2} />
               </span>
               <span className="flex flex-col leading-none">
                 <span className="font-display text-base font-bold text-brand">Rota Brasil</span>
                 <span className="text-[10px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
-                  Benefícios
+                  Proteção Veicular
                 </span>
               </span>
             </div>
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-muted-foreground">
-              Consultoria especializada em benefícios corporativos, com atendimento personalizado
-              para empresas de todo o Brasil.
+              Associação de proteção veicular com cobertura nacional, assistência 24 horas e
+              atendimento humanizado para carros, motos, caminhões e frotas.
             </p>
             <div className="mt-6 flex gap-2">
               {[
@@ -57,11 +58,11 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="text-sm font-semibold uppercase tracking-wider text-brand">Serviços</h4>
+            <h4 className="text-sm font-semibold uppercase tracking-wider text-brand">Coberturas</h4>
             <ul className="mt-5 space-y-3 text-sm text-muted-foreground">
-              {services.map((s) => (
+              {coberturas.map((s) => (
                 <li key={s}>
-                  <a href="#servicos" className="transition hover:text-primary">
+                  <a href="#coberturas" className="transition hover:text-primary">
                     {s}
                   </a>
                 </li>
@@ -97,22 +98,26 @@ export function Footer() {
               </li>
               <li className="flex items-start gap-2.5">
                 <Mail className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                <a href="mailto:contato@rotabrasilbeneficios.com.br" className="transition hover:text-primary">
-                  contato@rotabrasilbeneficios.com.br
+                <a href="mailto:contato@rotabrasil.com.br" className="transition hover:text-primary">
+                  contato@rotabrasil.com.br
                 </a>
               </li>
               <li className="flex items-start gap-2.5">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                <span>Endereço da empresa — Cidade / UF</span>
+                <span>Endereço da sede — Cidade / UF</span>
               </li>
             </ul>
           </div>
         </div>
 
         <div className="mt-12 flex flex-col items-start justify-between gap-3 border-t border-border pt-6 text-xs text-muted-foreground md:flex-row md:items-center">
-          <p>© {new Date().getFullYear()} Rota Brasil Benefícios. Todos os direitos reservados.</p>
-          <p>CNPJ 00.000.000/0001-00 · Atendimento em todo o Brasil</p>
+          <p>© {new Date().getFullYear()} Rota Brasil Proteção Veicular. Todos os direitos reservados.</p>
+          <p>CNPJ 00.000.000/0001-00 · Associação sem fins lucrativos · Atendimento nacional</p>
         </div>
+        <p className="mt-3 text-[11px] leading-relaxed text-muted-foreground/70">
+          Projeto conceitual desenvolvido para fins de portfólio. Marca, textos, imagens e indicadores
+          são meramente ilustrativos e não representam uma empresa ou serviço real.
+        </p>
       </div>
     </footer>
   );
