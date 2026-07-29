@@ -65,12 +65,12 @@ export function Header() {
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-7 lg:flex">
+        <nav className="hidden items-center gap-4 lg:flex xl:gap-7">
           {nav.map((n) => (
             <a
               key={n.href}
               href={n.href}
-              className="text-[13px] font-semibold uppercase tracking-[0.08em] text-brand/85 transition hover:text-primary"
+              className="text-[12px] font-semibold uppercase tracking-[0.06em] xl:text-[13px] text-brand/85 transition hover:text-primary"
             >
               {n.label}
             </a>
@@ -78,12 +78,12 @@ export function Header() {
         </nav>
 
         <div className="hidden items-center gap-2 lg:flex">
-          <a href="#cotacao" className="btn-highlight rounded-md px-6 py-3 text-[13px]">
+          <a href="#cotacao" className="btn-highlight rounded-md px-5 py-3 text-[12px] xl:px-6 xl:text-[13px]">
             Cotação
           </a>
           <a
             href="https://wa.me/5500000000000"
-            className="btn-primary rounded-md px-6 py-3 text-[13px] font-bold uppercase tracking-[0.04em]"
+            className="btn-primary hidden rounded-md px-6 py-3 text-[13px] font-bold uppercase tracking-[0.04em] xl:inline-flex"
           >
             Assistência 24h
           </a>
