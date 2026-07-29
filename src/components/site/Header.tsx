@@ -70,21 +70,25 @@ export function Header() {
             <a
               key={n.href}
               href={n.href}
-              className="text-sm font-medium text-foreground/80 transition hover:text-primary"
+              className="text-[13px] font-semibold uppercase tracking-[0.08em] text-brand/85 transition hover:text-primary"
             >
               {n.label}
             </a>
           ))}
         </nav>
 
-        <div className="hidden items-center gap-3 lg:flex">
+        <div className="hidden items-center gap-2 lg:flex">
+          <a href="#cotacao" className="btn-highlight rounded-md px-6 py-3 text-[13px]">
+            Cotação
+          </a>
           <a
-            href="#cotacao"
-            className="btn-primary rounded-full px-5 py-2.5 text-sm"
+            href="https://wa.me/5500000000000"
+            className="btn-primary rounded-md px-6 py-3 text-[13px] font-bold uppercase tracking-[0.04em]"
           >
-            Solicitar Cotação
+            Assistência 24h
           </a>
         </div>
+
 
         <button
           onClick={() => setOpen((v) => !v)}
