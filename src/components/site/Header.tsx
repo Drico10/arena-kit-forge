@@ -26,11 +26,33 @@ export function Header() {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-white/90 backdrop-blur-lg border-b border-border shadow-[0_1px_0_0_rgba(15,23,42,0.04)]"
-          : "bg-transparent"
+          ? "bg-white/95 backdrop-blur-lg border-b border-border shadow-[0_1px_0_0_rgba(15,23,42,0.04)]"
+          : "bg-white/80 backdrop-blur"
       }`}
     >
+      <div className="hidden border-b border-border lg:block">
+        <div className="container-x flex items-stretch justify-end">
+          <div className="topbar-slab flex items-center gap-10 py-2.5 pl-16 pr-6">
+            <span className="flex items-center gap-2.5">
+              <Phone className="h-4 w-4" />
+              <span className="leading-tight">
+                <span className="block text-[10px] font-semibold uppercase tracking-[0.18em] opacity-80">Central</span>
+                <span className="block text-sm font-bold">0800 000 0000</span>
+              </span>
+            </span>
+            <span className="flex items-center gap-2.5">
+              <Headset className="h-4 w-4" />
+              <span className="leading-tight">
+                <span className="block text-[10px] font-semibold uppercase tracking-[0.18em] opacity-80">Assistência 24h</span>
+                <span className="block text-sm font-bold">0800 000 0000</span>
+              </span>
+            </span>
+          </div>
+        </div>
+      </div>
+
       <div className="container-x flex h-16 items-center justify-between md:h-20">
+
         <Link to="/" className="flex items-center gap-2.5" onClick={() => setOpen(false)}>
           <span className="grid h-10 w-10 place-items-center rounded-xl gradient-brand text-white shadow-brand">
             <ShieldCheck className="h-5 w-5" strokeWidth={2.2} />
