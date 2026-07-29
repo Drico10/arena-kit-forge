@@ -302,7 +302,7 @@ function QuemSomos() {
 
         <div>
           <Reveal>
-            <span className="inline-flex rounded-full bg-primary/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-primary">
+            <span className="text-[11px] font-bold uppercase tracking-[0.22em] text-highlight">
               Quem Somos
             </span>
             <h2 className="mt-4 font-display text-3xl font-bold text-brand md:text-4xl lg:text-5xl">
