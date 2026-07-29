@@ -32,6 +32,8 @@
   --color-brand-foreground: var(--brand-foreground);
   --color-whatsapp: var(--whatsapp);
   --color-gold: var(--gold);
+  --color-highlight: var(--highlight);
+  --color-highlight-foreground: var(--highlight-foreground);
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
   --color-border: var(--border);
