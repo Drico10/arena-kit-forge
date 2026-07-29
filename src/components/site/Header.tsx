@@ -107,7 +107,7 @@ export function Header() {
                 key={n.href}
                 href={n.href}
                 onClick={() => setOpen(false)}
-                className="rounded-lg px-3 py-3 text-sm font-medium text-foreground/80 hover:bg-secondary hover:text-primary"
+                className="rounded-lg px-3 py-3 text-sm font-semibold uppercase tracking-[0.06em] text-brand/85 hover:bg-secondary hover:text-primary"
               >
                 {n.label}
               </a>
@@ -115,13 +115,21 @@ export function Header() {
             <a
               href="#cotacao"
               onClick={() => setOpen(false)}
-              className="btn-primary mt-2 rounded-full px-5 py-3 text-center text-sm"
+              className="btn-highlight mt-2 rounded-md px-5 py-3 text-center text-sm"
             >
-              Solicitar Cotação
+              Cotação
+            </a>
+            <a
+              href="tel:08000000000"
+              onClick={() => setOpen(false)}
+              className="btn-primary rounded-md px-5 py-3 text-center text-sm font-bold uppercase tracking-[0.04em]"
+            >
+              Assistência 24h · 0800 000 0000
             </a>
           </div>
         </div>
       )}
+
     </header>
   );
 }
