@@ -98,10 +98,11 @@ function Hero() {
       <div className="container-x grid gap-12 py-16 md:py-24 lg:grid-cols-[1.05fr_1fr] lg:items-center lg:gap-16 lg:py-28">
         <div>
           <Reveal>
-            <span className="inline-flex items-center gap-2 rounded-full border border-border bg-white/70 px-3.5 py-1.5 text-xs font-medium text-brand backdrop-blur">
-              <Sparkles className="h-3.5 w-3.5 text-primary" />
+            <span className="inline-flex items-center gap-2 rounded-full border border-highlight/30 bg-highlight/10 px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-[0.16em] text-highlight backdrop-blur">
+              <Sparkles className="h-3.5 w-3.5" />
               Associação de proteção veicular
             </span>
+
           </Reveal>
           <Reveal delay={80}>
             <h1 className="mt-6 font-display text-4xl font-bold leading-[1.05] text-brand sm:text-5xl lg:text-[3.4rem]">
@@ -117,18 +118,19 @@ function Hero() {
           </Reveal>
           <Reveal delay={240}>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <a href="#cotacao" className="btn-primary inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 text-sm">
+              <a href="#cotacao" className="btn-highlight inline-flex items-center justify-center gap-2 rounded-md px-7 py-4 text-sm">
                 Solicitar Cotação <ArrowRight className="h-4 w-4" />
               </a>
               <a
                 href="https://wa.me/5500000000000"
                 target="_blank"
                 rel="noopener"
-                className="btn-whatsapp inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 text-sm"
+                className="btn-whatsapp inline-flex items-center justify-center gap-2 rounded-md px-7 py-4 text-sm uppercase tracking-[0.04em]"
               >
                 <MessageCircle className="h-4 w-4" /> Falar no WhatsApp
               </a>
             </div>
+
           </Reveal>
           <Reveal delay={320}>
             <div className="mt-10 grid grid-cols-2 gap-3 text-xs text-muted-foreground sm:flex sm:flex-wrap sm:items-center sm:gap-x-6 sm:gap-y-3">
@@ -176,13 +178,15 @@ function SectionHead({ eyebrow, title, description }: { eyebrow: string; title: 
   return (
     <Reveal>
       <div className="mx-auto max-w-2xl text-center">
-        <span className="inline-flex rounded-full bg-primary/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-primary">
+        <span className="text-[11px] font-bold uppercase tracking-[0.22em] text-highlight">
           {eyebrow}
         </span>
-        <h2 className="mt-4 font-display text-3xl font-bold text-brand md:text-4xl lg:text-5xl">{title}</h2>
-        {description && <p className="mx-auto mt-4 max-w-xl text-base text-muted-foreground">{description}</p>}
+        <h2 className="mt-3 font-display text-3xl font-bold text-brand md:text-4xl lg:text-5xl">{title}</h2>
+        <span className="mx-auto mt-5 block h-1 w-14 rounded-full bg-highlight" />
+        {description && <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-muted-foreground">{description}</p>}
       </div>
     </Reveal>
+
   );
 }
 
@@ -298,7 +302,7 @@ function QuemSomos() {
 
         <div>
           <Reveal>
-            <span className="inline-flex rounded-full bg-primary/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-primary">
+            <span className="text-[11px] font-bold uppercase tracking-[0.22em] text-highlight">
               Quem Somos
             </span>
             <h2 className="mt-4 font-display text-3xl font-bold text-brand md:text-4xl lg:text-5xl">

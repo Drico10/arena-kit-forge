@@ -104,7 +104,7 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <Header />
-      <main className="min-h-[60vh] pt-16 md:pt-20"><Outlet /></main>
+      <main className="min-h-[60vh] pt-16 md:pt-20 lg:pt-[8.75rem]"><Outlet /></main>
       <Footer />
       <WhatsAppFab />
       <Toaster position="bottom-center" />
