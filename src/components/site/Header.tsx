@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Menu, X, ShieldCheck } from "lucide-react";
+import { Menu, X, ShieldCheck, Phone, Headset } from "lucide-react";
 
 const nav = [
   { href: "#coberturas", label: "Coberturas" },
