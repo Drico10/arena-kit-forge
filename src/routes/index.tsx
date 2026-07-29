@@ -118,18 +118,19 @@ function Hero() {
           </Reveal>
           <Reveal delay={240}>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <a href="#cotacao" className="btn-primary inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 text-sm">
+              <a href="#cotacao" className="btn-highlight inline-flex items-center justify-center gap-2 rounded-md px-7 py-4 text-sm">
                 Solicitar Cotação <ArrowRight className="h-4 w-4" />
               </a>
               <a
                 href="https://wa.me/5500000000000"
                 target="_blank"
                 rel="noopener"
-                className="btn-whatsapp inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 text-sm"
+                className="btn-whatsapp inline-flex items-center justify-center gap-2 rounded-md px-7 py-4 text-sm uppercase tracking-[0.04em]"
               >
                 <MessageCircle className="h-4 w-4" /> Falar no WhatsApp
               </a>
             </div>
+
           </Reveal>
           <Reveal delay={320}>
             <div className="mt-10 grid grid-cols-2 gap-3 text-xs text-muted-foreground sm:flex sm:flex-wrap sm:items-center sm:gap-x-6 sm:gap-y-3">
