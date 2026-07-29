@@ -98,10 +98,11 @@ function Hero() {
       <div className="container-x grid gap-12 py-16 md:py-24 lg:grid-cols-[1.05fr_1fr] lg:items-center lg:gap-16 lg:py-28">
         <div>
           <Reveal>
-            <span className="inline-flex items-center gap-2 rounded-full border border-border bg-white/70 px-3.5 py-1.5 text-xs font-medium text-brand backdrop-blur">
-              <Sparkles className="h-3.5 w-3.5 text-primary" />
+            <span className="inline-flex items-center gap-2 rounded-full border border-highlight/30 bg-highlight/10 px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-[0.16em] text-highlight backdrop-blur">
+              <Sparkles className="h-3.5 w-3.5" />
               Associação de proteção veicular
             </span>
+
           </Reveal>
           <Reveal delay={80}>
             <h1 className="mt-6 font-display text-4xl font-bold leading-[1.05] text-brand sm:text-5xl lg:text-[3.4rem]">
